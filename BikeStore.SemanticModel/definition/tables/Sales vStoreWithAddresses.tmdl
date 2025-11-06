@@ -1,0 +1,86 @@
+table 'Sales vStoreWithAddresses'
+	lineageTag: 10ad4d33-d5d1-4479-aefa-cc75c611e1c6
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: a2f07640-f59d-4377-9c94-083dc38c3c6f
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 604e2a42-7801-4ffa-b43d-8959e59be32f
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressType
+		dataType: string
+		lineageTag: 335b98d6-7cb4-4301-bf2e-eade0295cff2
+		summarizeBy: none
+		sourceColumn: AddressType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: 1a5fc970-1772-4bcd-bec6-323da1fa3449
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: 287ea4bd-cb58-4852-ab1d-96d4a4cb4c14
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 8cf47b7d-e390-413f-bd86-151ff3e70a20
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: f396f783-d269-45b2-ae2b-3c3a4f9796e1
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 5db1c19b-1087-41dc-bc72-e40d0c7c68b9
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		lineageTag: 52abb86f-3dc9-4377-8def-b61992fb6ee3
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales vStoreWithAddresses' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_vStoreWithAddresses = AdventureWorks2022{[Schema="Sales",Item="vStoreWithAddresses"]}[Data]
+				in
+				    Sales_vStoreWithAddresses
+

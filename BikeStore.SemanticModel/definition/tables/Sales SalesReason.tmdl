@@ -1,0 +1,52 @@
+table 'Sales SalesReason'
+	lineageTag: ddfa758f-fe23-4ebb-9bab-fbfd214525b9
+
+	column SalesReasonID
+		dataType: int64
+		formatString: 0
+		lineageTag: 72c86a53-8ae1-4fa9-9f36-de66a65082dc
+		summarizeBy: none
+		sourceColumn: SalesReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 3e6a04c0-00f0-4e5b-8421-ad0cb6a1dfe3
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReasonType
+		dataType: string
+		lineageTag: 171598ee-f642-4a5a-9a4b-a05c0ce6331a
+		summarizeBy: none
+		sourceColumn: ReasonType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 773ef2e3-9e74-4699-af89-f489098e2228
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 5890b897-b8e8-4ae5-a7d9-01bc5df690c1
+			defaultHierarchy: LocalDateTable_fa85cdc5-e764-411c-bf16-4a0984a9ab38.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesReason' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SalesReason = AdventureWorks2022{[Schema="Sales",Item="SalesReason"]}[Data]
+				in
+				    Sales_SalesReason
+

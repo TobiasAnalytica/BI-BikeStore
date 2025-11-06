@@ -1,0 +1,151 @@
+table 'Production WorkOrderRouting'
+	lineageTag: 6d428ea9-67e5-417b-9e6d-0190432db82b
+
+	column WorkOrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: 14713b66-661f-4899-84e6-8363d1bb4afc
+		summarizeBy: none
+		sourceColumn: WorkOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: d92eeefd-f327-44c6-aeac-7f2d6d2ca0da
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperationSequence
+		dataType: int64
+		formatString: 0
+		lineageTag: f21c5113-e269-47bd-85cc-98c543d420ba
+		summarizeBy: sum
+		sourceColumn: OperationSequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: 91925b3d-6162-46db-b981-60f8c902d22d
+		summarizeBy: none
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bd501996-e870-41d8-a2d7-02d7eb94613c
+		summarizeBy: none
+		sourceColumn: ScheduledStartDate
+
+		variation Variation
+			isDefault
+			relationship: 30aad149-0793-4b4f-930d-f45964227339
+			defaultHierarchy: LocalDateTable_6894f93e-2306-4ab3-a96b-27557224e5e1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 34a9d42f-3413-4f71-8b2b-2271adb87302
+		summarizeBy: none
+		sourceColumn: ScheduledEndDate
+
+		variation Variation
+			isDefault
+			relationship: 25da1099-6931-45ad-b4a5-ad81230a806d
+			defaultHierarchy: LocalDateTable_66ca9e20-dd72-451b-b5ac-042ebe361c16.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8556b7c6-7db5-4f5a-8a9d-4abfbd602cd4
+		summarizeBy: none
+		sourceColumn: ActualStartDate
+
+		variation Variation
+			isDefault
+			relationship: 09999918-2e1f-439f-a0c7-b84e7877e7c8
+			defaultHierarchy: LocalDateTable_9dd16dcf-625b-408a-b563-433a1b6de2be.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 98f89bbf-24ca-41a2-9c68-d8be7c1a1455
+		summarizeBy: none
+		sourceColumn: ActualEndDate
+
+		variation Variation
+			isDefault
+			relationship: dd1afeb8-758d-4bcd-a208-9796079022e5
+			defaultHierarchy: LocalDateTable_ce82a2cb-48ec-4a52-b03a-418bfdd0336e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualResourceHrs
+		dataType: double
+		lineageTag: 69dff622-fa10-492c-a329-6279d2608698
+		summarizeBy: sum
+		sourceColumn: ActualResourceHrs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedCost
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 8e5ebe3a-e463-4d02-9a66-68c9b03638cc
+		summarizeBy: sum
+		sourceColumn: PlannedCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column ActualCost
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 3bcaa454-cc7b-4ad5-979a-2614bda9fbce
+		summarizeBy: sum
+		sourceColumn: ActualCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: edd957a1-de92-4c9f-b79d-94f3cb413a00
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: ccc9b221-19dc-48b8-ac2b-1eee78396879
+			defaultHierarchy: LocalDateTable_a11ca7d1-af2b-42a7-83b4-02974269cd09.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production WorkOrderRouting' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_WorkOrderRouting = AdventureWorks2022{[Schema="Production",Item="WorkOrderRouting"]}[Data]
+				in
+				    Production_WorkOrderRouting
+

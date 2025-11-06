@@ -1,0 +1,52 @@
+table 'HumanResources Department'
+	lineageTag: 51ae7964-f77e-4508-aa71-a95b24012dab
+
+	column DepartmentID
+		dataType: int64
+		formatString: 0
+		lineageTag: e514db86-026a-4e64-8b73-648b9496b643
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 506c13a4-5455-42f0-b91a-537f78ee0cab
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		lineageTag: 80a4b793-2861-417d-8785-9d58bd6f8651
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5e5a52c9-da00-4e93-b512-1ddb35cc6194
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: ad7023bc-5b7c-4ba9-ac0c-0d1654646678
+			defaultHierarchy: LocalDateTable_62eee00f-2c76-400d-8b77-dea75d726a83.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'HumanResources Department' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    HumanResources_Department = AdventureWorks2022{[Schema="HumanResources",Item="Department"]}[Data]
+				in
+				    HumanResources_Department
+

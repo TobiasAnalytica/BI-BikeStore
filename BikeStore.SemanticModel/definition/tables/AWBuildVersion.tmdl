@@ -1,0 +1,58 @@
+table AWBuildVersion
+	lineageTag: 991baacf-a0d6-4deb-b9f9-45104b72c058
+
+	column SystemInformationID
+		dataType: int64
+		formatString: 0
+		lineageTag: f334f5b1-484d-4870-aa05-ef2cfe01b2d7
+		summarizeBy: count
+		sourceColumn: SystemInformationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Database Version'
+		dataType: string
+		lineageTag: aa3c4dbd-db40-4f12-9130-011918a1d324
+		summarizeBy: none
+		sourceColumn: Database Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column VersionDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 08e7f529-07f0-4c52-af53-677ea1cb1941
+		summarizeBy: none
+		sourceColumn: VersionDate
+
+		variation Variation
+			isDefault
+			relationship: 4f886ae7-4cdb-44eb-bd98-385cb3d8876f
+			defaultHierarchy: LocalDateTable_42ac70ee-b5e7-4dc8-9a36-59f2a103a7fc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1c4fa523-4276-42c4-8e41-62133224d380
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 029b49aa-4558-48c2-9504-a54bd60bca44
+			defaultHierarchy: LocalDateTable_f157e883-39db-4a43-914d-2c7b011851ac.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AWBuildVersion = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    dbo_AWBuildVersion = AdventureWorks2022{[Schema="dbo",Item="AWBuildVersion"]}[Data]
+				in
+				    dbo_AWBuildVersion
+

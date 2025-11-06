@@ -1,0 +1,44 @@
+table 'Production ProductDocument'
+	lineageTag: deaef549-1a3a-4b16-b99a-c8cd966f09a4
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cac7286-fca1-41a6-9cf5-ce88b45e0603
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocumentNode
+		dataType: string
+		lineageTag: afa45196-f81d-4d41-9ce5-e971d4e9b0aa
+		summarizeBy: none
+		sourceColumn: DocumentNode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6c47b7fb-9f59-4437-9a1d-78e47a908855
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 0a434f10-7cca-4c97-96ad-407e203d75a0
+			defaultHierarchy: LocalDateTable_b1917c85-0337-4c6c-9a24-4bac91cb1d16.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductDocument' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductDocument = AdventureWorks2022{[Schema="Production",Item="ProductDocument"]}[Data]
+				in
+				    Production_ProductDocument
+

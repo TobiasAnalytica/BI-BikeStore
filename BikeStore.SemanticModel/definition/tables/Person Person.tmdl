@@ -1,0 +1,126 @@
+table 'Person Person'
+	lineageTag: abe80449-a5a5-4b24-a3e4-efb06111a232
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: dded7bea-b508-48e2-931f-f25ebcc58680
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonType
+		dataType: string
+		lineageTag: 25016cd4-6514-484a-ba67-ca3c91d6241a
+		summarizeBy: none
+		sourceColumn: PersonType
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameStyle
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: df16ee60-be54-453a-a528-c5da0c48f988
+		summarizeBy: none
+		sourceColumn: NameStyle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 9e3c9b5c-bec8-4527-9034-1e157722207d
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: d7089088-bc50-4206-b28c-7efbfecec4db
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: c4d67f82-3baf-498b-a743-2f0bb4db79c6
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 408a53da-9ba9-4880-a743-78af74ce8f41
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: 813453b5-bc4d-4af1-9f47-3e411049df50
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		lineageTag: a5af3e69-4430-47ed-a83a-121909d6290a
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalContactInfo
+		dataType: string
+		lineageTag: 31add44c-a88c-4947-9d28-ef5359099066
+		summarizeBy: none
+		sourceColumn: AdditionalContactInfo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Demographics
+		dataType: string
+		lineageTag: f649e843-84fc-49de-8df6-a187103a37f1
+		summarizeBy: none
+		sourceColumn: Demographics
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: cc311d89-0059-4911-80a7-8a110c5655ba
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e37e812-7906-4870-8700-3e6b3c8facfd
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 1743c69b-f781-4f09-9229-1f4db9e30955
+			defaultHierarchy: LocalDateTable_2cf5e736-2fbc-4afd-8f93-22dddb28b6c6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person Person' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_Person = AdventureWorks2022{[Schema="Person",Item="Person"]}[Data]
+				in
+				    Person_Person
+

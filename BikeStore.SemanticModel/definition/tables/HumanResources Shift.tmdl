@@ -1,0 +1,66 @@
+table 'HumanResources Shift'
+	lineageTag: 06328d97-1c10-40a3-baee-e773a8799ca1
+
+	column ShiftID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a665a29-f0f1-41f1-82d2-1da8c1853616
+		summarizeBy: none
+		sourceColumn: ShiftID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 770ac105-dd53-4f5f-8c5c-74383c8effca
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: ffd12e57-6e36-4f0d-91ee-8f137e3b6c3f
+		summarizeBy: none
+		sourceColumn: StartTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column EndTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 4f53d075-4286-4ef2-81b9-52f88bd5cbad
+		summarizeBy: none
+		sourceColumn: EndTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ed18f5a6-d68a-4a7c-99b8-778f21461a75
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: f625c5de-fc40-41fc-bafe-1b401f2c7262
+			defaultHierarchy: LocalDateTable_a9191a5f-25dc-4d61-8c0c-82c1b6edd368.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'HumanResources Shift' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    HumanResources_Shift = AdventureWorks2022{[Schema="HumanResources",Item="Shift"]}[Data]
+				in
+				    HumanResources_Shift
+

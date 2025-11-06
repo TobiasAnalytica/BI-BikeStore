@@ -1,0 +1,52 @@
+table 'Production ProductPhoto'
+	lineageTag: 08c41da1-5fd2-4a70-8311-faa5007698ae
+
+	column ProductPhotoID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d8fd53b-2028-4d42-82a5-d271f6263dee
+		summarizeBy: none
+		sourceColumn: ProductPhotoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ThumbnailPhotoFileName
+		dataType: string
+		lineageTag: e4faabe9-d1ca-48c5-be74-0e7426f92ecb
+		summarizeBy: none
+		sourceColumn: ThumbnailPhotoFileName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LargePhotoFileName
+		dataType: string
+		lineageTag: 0ae2aeda-089e-419d-9dca-697bfd811502
+		summarizeBy: none
+		sourceColumn: LargePhotoFileName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 54a8d9a8-daab-483c-9cb6-d20dc3d0be12
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 789decd7-5ece-49fc-809f-c6eabae6969f
+			defaultHierarchy: LocalDateTable_3babc1fd-e8a1-4a15-826d-18d4c837c439.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductPhoto' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductPhoto = AdventureWorks2022{[Schema="Production",Item="ProductPhoto"]}[Data]
+				in
+				    Production_ProductPhoto
+

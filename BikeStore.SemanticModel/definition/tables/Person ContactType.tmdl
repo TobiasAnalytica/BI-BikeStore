@@ -1,0 +1,44 @@
+table 'Person ContactType'
+	lineageTag: e0da166f-ecc1-4582-8e3d-9faf4ace1114
+
+	column ContactTypeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 719b881b-cdca-47b1-828a-57345f9303ec
+		summarizeBy: none
+		sourceColumn: ContactTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 21595682-ebd2-4680-936b-98b547b72e84
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 79865a26-4bbe-4f88-b2e9-b6e72a868bc5
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: ae0f6e85-dc29-4cca-8b9d-c1bca7acfbc7
+			defaultHierarchy: LocalDateTable_85ebbab4-85f4-4cdd-a6e5-3cd27234fe13.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person ContactType' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_ContactType = AdventureWorks2022{[Schema="Person",Item="ContactType"]}[Data]
+				in
+				    Person_ContactType
+

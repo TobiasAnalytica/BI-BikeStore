@@ -1,0 +1,86 @@
+table 'Person StateProvince'
+	lineageTag: 1519606b-6067-4b01-a29d-e4076e9be553
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		lineageTag: 00e8d52f-533b-4023-bcc5-bb17d77f6c72
+		summarizeBy: none
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		lineageTag: 80b4ec07-6b43-438e-82c5-f9b255a12591
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: b9d63aee-2219-4f10-b9bf-b69c49f9705e
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOnlyStateProvinceFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5a74be75-fc38-41c5-9510-f56f02e97072
+		summarizeBy: none
+		sourceColumn: IsOnlyStateProvinceFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 27dfe395-b246-49b4-b47b-830450cb04bd
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c16fd01-ee64-4ea8-a6c2-8cd580395f02
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 3af25def-9718-4307-820e-972a0c0e08ad
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e324d217-7f83-475a-8fc6-c53a6f38bc11
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: e60663bc-a2ff-4860-84f5-7ca1f5f68443
+			defaultHierarchy: LocalDateTable_adee9183-c699-4f02-8425-d5851a021349.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person StateProvince' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_StateProvince = AdventureWorks2022{[Schema="Person",Item="StateProvince"]}[Data]
+				in
+				    Person_StateProvince
+

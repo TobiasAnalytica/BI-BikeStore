@@ -1,0 +1,110 @@
+expression ufnGetAccountingEndDate =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetAccountingEndDate = AdventureWorks2022{[Schema="dbo",Item="ufnGetAccountingEndDate"]}[Data]
+		in
+		    dbo_ufnGetAccountingEndDate
+	lineageTag: c15c8be9-1581-49cd-b73e-b772bbbb85ee
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetAccountingStartDate =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetAccountingStartDate = AdventureWorks2022{[Schema="dbo",Item="ufnGetAccountingStartDate"]}[Data]
+		in
+		    dbo_ufnGetAccountingStartDate
+	lineageTag: cdbac758-377f-4911-a9ab-271819d36ab5
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetContactInformation =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetContactInformation = AdventureWorks2022{[Schema="dbo",Item="ufnGetContactInformation"]}[Data]
+		in
+		    dbo_ufnGetContactInformation
+	lineageTag: c2c4fe02-db7c-4b14-8630-b2c430a88c6b
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetDocumentStatusText =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetDocumentStatusText = AdventureWorks2022{[Schema="dbo",Item="ufnGetDocumentStatusText"]}[Data]
+		in
+		    dbo_ufnGetDocumentStatusText
+	lineageTag: 1c4b0246-df10-4dd5-a143-6e127a6d070e
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetProductDealerPrice =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetProductDealerPrice = AdventureWorks2022{[Schema="dbo",Item="ufnGetProductDealerPrice"]}[Data]
+		in
+		    dbo_ufnGetProductDealerPrice
+	lineageTag: 7ebb088d-f947-4aed-8009-0756703392df
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetProductListPrice =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetProductListPrice = AdventureWorks2022{[Schema="dbo",Item="ufnGetProductListPrice"]}[Data]
+		in
+		    dbo_ufnGetProductListPrice
+	lineageTag: e4f082fb-3bfb-489f-88bd-d35607a0dee4
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetProductStandardCost =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetProductStandardCost = AdventureWorks2022{[Schema="dbo",Item="ufnGetProductStandardCost"]}[Data]
+		in
+		    dbo_ufnGetProductStandardCost
+	lineageTag: 223095ae-b50f-406d-a7f8-1e081e780d3b
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetPurchaseOrderStatusText =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetPurchaseOrderStatusText = AdventureWorks2022{[Schema="dbo",Item="ufnGetPurchaseOrderStatusText"]}[Data]
+		in
+		    dbo_ufnGetPurchaseOrderStatusText
+	lineageTag: 4d349d2f-f9df-457a-9f3e-fe528aeea499
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetSalesOrderStatusText =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetSalesOrderStatusText = AdventureWorks2022{[Schema="dbo",Item="ufnGetSalesOrderStatusText"]}[Data]
+		in
+		    dbo_ufnGetSalesOrderStatusText
+	lineageTag: cf0a33eb-20e5-44d8-9deb-7d65859334d9
+
+	annotation PBI_ResultType = Function
+
+expression ufnGetStock =
+		let
+		    Source = Sql.Databases("127.0.0.1,1433"),
+		    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+		    dbo_ufnGetStock = AdventureWorks2022{[Schema="dbo",Item="ufnGetStock"]}[Data]
+		in
+		    dbo_ufnGetStock
+	lineageTag: 137974e1-9201-4b29-b6b9-43b08296041c
+
+	annotation PBI_ResultType = Function
+

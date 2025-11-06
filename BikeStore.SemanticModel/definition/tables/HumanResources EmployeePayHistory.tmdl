@@ -1,0 +1,70 @@
+table 'HumanResources EmployeePayHistory'
+	lineageTag: 3a91e51e-b2dc-4466-9ea9-cea1a7cce81d
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6dd8a560-9d68-4f98-8a6a-a97df4c4f33f
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RateChangeDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a0d45a2-423a-4d17-8e13-d1375473cd23
+		summarizeBy: none
+		sourceColumn: RateChangeDate
+
+		variation Variation
+			isDefault
+			relationship: 8b3f7d7f-1cca-4761-b5a3-154528856240
+			defaultHierarchy: LocalDateTable_562ac316-d8c3-4b19-8d28-77b10f5963d8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 5e3d6b7e-cb72-4c9b-ad5d-fb80b3a8a468
+		summarizeBy: sum
+		sourceColumn: Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column PayFrequency
+		dataType: int64
+		formatString: 0
+		lineageTag: 713a1d7d-0b22-4441-80af-a26ed511e569
+		summarizeBy: sum
+		sourceColumn: PayFrequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 05e1d9af-f027-466d-9dfe-c47cef945738
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: af16c7d9-5907-4380-8f30-cd740c47fe20
+			defaultHierarchy: LocalDateTable_2debf3d0-3565-4d8d-8847-33dce6d4887b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'HumanResources EmployeePayHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    HumanResources_EmployeePayHistory = AdventureWorks2022{[Schema="HumanResources",Item="EmployeePayHistory"]}[Data]
+				in
+				    HumanResources_EmployeePayHistory
+

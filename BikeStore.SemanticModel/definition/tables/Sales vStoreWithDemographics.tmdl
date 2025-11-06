@@ -1,0 +1,119 @@
+table 'Sales vStoreWithDemographics'
+	lineageTag: cd537bb5-abd1-43f2-8b92-dbbead72d5a8
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c035aee-4b28-48fc-aa40-8b118d190982
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 62cf5233-97b5-43c3-ae8c-64e29b6ef761
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnnualSales
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 58e93024-6e82-4935-b7a3-11f3897f6e85
+		summarizeBy: sum
+		sourceColumn: AnnualSales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column AnnualRevenue
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: d1d38ae0-12ee-41b0-8dec-7ba0dc94cc33
+		summarizeBy: sum
+		sourceColumn: AnnualRevenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column BankName
+		dataType: string
+		lineageTag: 423cfc68-ff28-49c3-90b0-0345f6a63bc0
+		summarizeBy: none
+		sourceColumn: BankName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessType
+		dataType: string
+		lineageTag: 4dd63d3c-14df-4fae-8ce9-1a7f59151a6f
+		summarizeBy: none
+		sourceColumn: BusinessType
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearOpened
+		dataType: int64
+		formatString: 0
+		lineageTag: 60733679-2aea-4cfa-b7b6-a3aed64d6658
+		summarizeBy: sum
+		sourceColumn: YearOpened
+
+		annotation SummarizationSetBy = Automatic
+
+	column Specialty
+		dataType: string
+		lineageTag: 55859f34-ff73-4b00-837d-763418149bf2
+		summarizeBy: none
+		sourceColumn: Specialty
+
+		annotation SummarizationSetBy = Automatic
+
+	column SquareFeet
+		dataType: int64
+		formatString: 0
+		lineageTag: fa289c23-90d3-4935-bb17-58bff997711c
+		summarizeBy: sum
+		sourceColumn: SquareFeet
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brands
+		dataType: string
+		lineageTag: df492680-5d05-4743-9ef2-50cedc022ea6
+		summarizeBy: none
+		sourceColumn: Brands
+
+		annotation SummarizationSetBy = Automatic
+
+	column Internet
+		dataType: string
+		lineageTag: 1016d589-a620-46e2-a417-88962fd9b4cb
+		summarizeBy: none
+		sourceColumn: Internet
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberEmployees
+		dataType: int64
+		formatString: 0
+		lineageTag: 3851895f-80cf-44fa-987e-6dcc2e67db36
+		summarizeBy: sum
+		sourceColumn: NumberEmployees
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales vStoreWithDemographics' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_vStoreWithDemographics = AdventureWorks2022{[Schema="Sales",Item="vStoreWithDemographics"]}[Data]
+				in
+				    Sales_vStoreWithDemographics
+

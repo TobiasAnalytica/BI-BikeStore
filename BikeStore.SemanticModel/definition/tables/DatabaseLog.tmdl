@@ -1,0 +1,84 @@
+table DatabaseLog
+	lineageTag: 6b9ec822-d070-430a-811f-0068ae2c383b
+
+	column DatabaseLogID
+		dataType: int64
+		formatString: 0
+		lineageTag: ce53647a-b2dc-4701-8508-93b94a8ae99b
+		summarizeBy: count
+		sourceColumn: DatabaseLogID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e05f690f-e6a2-415d-80a4-1e703e560937
+		summarizeBy: none
+		sourceColumn: PostTime
+
+		variation Variation
+			isDefault
+			relationship: 01dcb5a9-93ee-4519-8ed9-5278c6e6f818
+			defaultHierarchy: LocalDateTable_63958292-be53-4d43-83ea-ea7bb1b1be92.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatabaseUser
+		dataType: string
+		lineageTag: d044f2be-e0b1-41b7-94d3-a7031c2ef4f9
+		summarizeBy: none
+		sourceColumn: DatabaseUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column Event
+		dataType: string
+		lineageTag: 5d305bde-761f-478a-aea5-3988102b92f7
+		summarizeBy: none
+		sourceColumn: Event
+
+		annotation SummarizationSetBy = Automatic
+
+	column Schema
+		dataType: string
+		lineageTag: 084dd690-e77f-4cb3-8857-c437116c6b6f
+		summarizeBy: none
+		sourceColumn: Schema
+
+		annotation SummarizationSetBy = Automatic
+
+	column Object
+		dataType: string
+		lineageTag: e95c3a82-c34e-459c-a59a-1f0f8877a77b
+		summarizeBy: none
+		sourceColumn: Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column TSQL
+		dataType: string
+		lineageTag: 6dadcc05-24c2-4ff3-8996-ce08729c38aa
+		summarizeBy: none
+		sourceColumn: TSQL
+
+		annotation SummarizationSetBy = Automatic
+
+	column XmlEvent
+		dataType: string
+		lineageTag: 70bdbfa3-0964-4b57-90ef-00865e288c2f
+		summarizeBy: none
+		sourceColumn: XmlEvent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DatabaseLog = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    dbo_DatabaseLog = AdventureWorks2022{[Schema="dbo",Item="DatabaseLog"]}[Data]
+				in
+				    dbo_DatabaseLog
+

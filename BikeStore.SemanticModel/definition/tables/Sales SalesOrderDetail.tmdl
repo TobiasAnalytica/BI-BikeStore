@@ -1,0 +1,120 @@
+table 'Sales SalesOrderDetail'
+	lineageTag: d57347db-d137-4a09-84ad-d6ab249706df
+
+	column SalesOrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: 40418032-181b-4797-960d-faef7d2b9a0f
+		summarizeBy: none
+		sourceColumn: SalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderDetailID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e00d018-af09-4e58-ad91-627f1de1f954
+		summarizeBy: count
+		sourceColumn: SalesOrderDetailID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CarrierTrackingNumber
+		dataType: string
+		lineageTag: 81631fe1-61db-4f28-97b8-639ebdb7f4ff
+		summarizeBy: none
+		sourceColumn: CarrierTrackingNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQty
+		dataType: int64
+		formatString: 0
+		lineageTag: efb8f3a9-2459-40e5-aef6-6f8fb39c9339
+		summarizeBy: sum
+		sourceColumn: OrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c438b8f-2907-42ab-8b42-0601a69ff330
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpecialOfferID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e23c531-a470-4d94-bac1-d6251791837e
+		summarizeBy: count
+		sourceColumn: SpecialOfferID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 3cae7c4c-b619-408d-964e-45c694095c2a
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column UnitPriceDiscount
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: d11b6d21-4c8c-4ed6-90fa-c2bf0cfe3b36
+		summarizeBy: sum
+		sourceColumn: UnitPriceDiscount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column LineTotal
+		dataType: double
+		lineageTag: 23e4f617-7f64-4092-99b9-4a4bf9868007
+		summarizeBy: sum
+		sourceColumn: LineTotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rowguid
+		dataType: string
+		lineageTag: 49a228b0-10c6-46d0-826d-371ff89f391e
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 96b8eae3-5e3f-453c-b434-8368133d6763
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 6daa6248-f5cb-4759-bedc-cb55906a17ec
+			defaultHierarchy: LocalDateTable_3fc61a21-ea1d-4862-ab39-91a061030e8c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesOrderDetail' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SalesOrderDetail = AdventureWorks2022{[Schema="Sales",Item="SalesOrderDetail"]}[Data]
+				in
+				    Sales_SalesOrderDetail
+

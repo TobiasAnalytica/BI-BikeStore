@@ -1,0 +1,93 @@
+table 'Person Address'
+	lineageTag: b9a1f0a7-f7b5-42df-ae40-b7bdd3e9b2ec
+
+	column AddressID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ae6124c-0df6-4c58-8c41-70d60d3a4033
+		summarizeBy: none
+		sourceColumn: AddressID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: ef2ea57e-2a6d-41cd-99ec-f6e4fc85ba4a
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: a8905759-27a3-44e4-a951-48d4bab6a209
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: b88619c4-7622-4c12-b6f8-2788a8b1fb62
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		lineageTag: 64e0c97c-dfaf-454d-9102-4029345886df
+		summarizeBy: none
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 146e571b-829f-467f-855e-7d81d0abaf83
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpatialLocation
+		dataType: string
+		lineageTag: 5b966f6c-cb02-4144-aa6e-9498aab7d8b3
+		summarizeBy: none
+		sourceColumn: SpatialLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: b5f3e179-7dee-4453-8d63-dc711ef365be
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c10a2a13-e52e-4d63-9b1e-a22c01566275
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 2ec50eac-14f5-40c2-b970-61ddd7f880d3
+			defaultHierarchy: LocalDateTable_6e323831-8534-40b0-9f7b-576469e0ed79.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person Address' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_Address = AdventureWorks2022{[Schema="Person",Item="Address"]}[Data]
+				in
+				    Person_Address
+

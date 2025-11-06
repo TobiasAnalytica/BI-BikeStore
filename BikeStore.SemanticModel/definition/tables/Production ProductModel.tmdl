@@ -1,0 +1,68 @@
+table 'Production ProductModel'
+	lineageTag: c472480e-8165-41f5-b768-0990e4e738c1
+
+	column ProductModelID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0646a2e5-9280-424a-bcd2-85e3180d891d
+		summarizeBy: none
+		sourceColumn: ProductModelID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 208c27fd-81db-4f5b-b282-3bddb2fa21c6
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CatalogDescription
+		dataType: string
+		lineageTag: c6ed59b0-41a3-4fe2-9b48-ef154a8dcb55
+		summarizeBy: none
+		sourceColumn: CatalogDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructions
+		dataType: string
+		lineageTag: a1481089-86bf-4cf7-a9e4-53aff224de12
+		summarizeBy: none
+		sourceColumn: Instructions
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 089a1f3d-20f3-4893-842e-7a52c9e438ad
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7abc7a50-2cd1-4734-adfc-e332fa987e58
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 8a8d7cba-5513-4e72-a275-7c40717062f9
+			defaultHierarchy: LocalDateTable_9496eede-3985-4b78-b2a3-82372d6a157e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductModel' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductModel = AdventureWorks2022{[Schema="Production",Item="ProductModel"]}[Data]
+				in
+				    Production_ProductModel
+

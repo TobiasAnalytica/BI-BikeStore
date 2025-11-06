@@ -1,0 +1,81 @@
+table 'Sales SalesTaxRate'
+	lineageTag: a1440ec0-db55-40d4-b100-199f86207f62
+
+	column SalesTaxRateID
+		dataType: int64
+		formatString: 0
+		lineageTag: 316f30fe-3f15-4ec4-9ac4-c9616e0d386f
+		summarizeBy: count
+		sourceColumn: SalesTaxRateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e58b400-4198-4997-a880-f211177fbd73
+		summarizeBy: none
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxType
+		dataType: int64
+		formatString: 0
+		lineageTag: 67419060-5866-405a-9122-73ddccdf69c3
+		summarizeBy: sum
+		sourceColumn: TaxType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxRate
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 302c3d3b-6e9e-4d7c-87cc-5909ea15d6cd
+		summarizeBy: sum
+		sourceColumn: TaxRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column Name
+		dataType: string
+		lineageTag: c7564cd2-42bc-4d0a-b390-02831983844a
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: dbca15e8-0a5f-404e-a80f-4c8cd2426eff
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 18e736a2-5f95-4932-b899-0a3e21c33a5a
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 733d3719-9640-4414-b13e-958bd182747d
+			defaultHierarchy: LocalDateTable_dac2e5e5-b1a1-42e0-bda3-46decc0a7d6b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesTaxRate' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SalesTaxRate = AdventureWorks2022{[Schema="Sales",Item="SalesTaxRate"]}[Data]
+				in
+				    Sales_SalesTaxRate
+

@@ -1,0 +1,156 @@
+table 'Person vAdditionalContactInfo'
+	lineageTag: 2fd8cc2b-57ce-4c15-8cd7-5b289a394ccd
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 55c031f8-2adf-4aa0-b9c4-d23cc178404c
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 4664696c-189c-4d88-9e60-41df6c908fb1
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 4aee357c-ab1d-49bb-8157-ff50983164f1
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 05bd5c6b-1e19-4aa7-8690-391ff33e1e4f
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TelephoneNumber
+		dataType: string
+		lineageTag: 25cccef6-4923-49ed-b165-b818dc066757
+		summarizeBy: none
+		sourceColumn: TelephoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column TelephoneSpecialInstructions
+		dataType: string
+		lineageTag: 623a40ea-ebb7-4282-af1b-07190184154f
+		summarizeBy: none
+		sourceColumn: TelephoneSpecialInstructions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Street
+		dataType: string
+		lineageTag: 4549473e-75b7-48b8-8311-180d7607d131
+		summarizeBy: none
+		sourceColumn: Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 2f60561b-0b8a-4ea5-83d6-c2e23cfcb9c4
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvince
+		dataType: string
+		lineageTag: 80d7d993-fb32-44f4-94d0-716bde6fd995
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: a3449b6e-57d4-4b8c-ab8b-01505934514f
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegion
+		dataType: string
+		lineageTag: be2c09f5-3526-434e-abe0-65e84d667060
+		summarizeBy: none
+		sourceColumn: CountryRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeAddressSpecialInstructions
+		dataType: string
+		lineageTag: 10e3d132-4b14-4c01-9be4-c08c34f18367
+		summarizeBy: none
+		sourceColumn: HomeAddressSpecialInstructions
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMailAddress
+		dataType: string
+		lineageTag: 4c92d997-e909-4e8e-b3e8-970737c4a354
+		summarizeBy: none
+		sourceColumn: EMailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMailSpecialInstructions
+		dataType: string
+		lineageTag: 028cc216-7039-49dd-a323-7fbad72cf6ed
+		summarizeBy: none
+		sourceColumn: EMailSpecialInstructions
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMailTelephoneNumber
+		dataType: string
+		lineageTag: 52dd6905-a1bc-4466-b23e-fbb0f7879193
+		summarizeBy: none
+		sourceColumn: EMailTelephoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: da6f5fe3-05ac-4194-8e2b-5b6f25d1bbc3
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3e267560-b14d-4081-a861-084dc31e7eb7
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 47111ad0-b83e-4d47-aaab-1149a138c99d
+			defaultHierarchy: LocalDateTable_162d111c-d4eb-401e-8f58-ab898ee92df7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person vAdditionalContactInfo' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_vAdditionalContactInfo = AdventureWorks2022{[Schema="Person",Item="vAdditionalContactInfo"]}[Data]
+				in
+				    Person_vAdditionalContactInfo
+

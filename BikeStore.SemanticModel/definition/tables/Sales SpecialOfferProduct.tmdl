@@ -1,0 +1,55 @@
+table 'Sales SpecialOfferProduct'
+	lineageTag: a3adadf3-e236-4ccb-b9a0-bf08b0ef2b14
+
+	column SpecialOfferID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c01b0e0-3705-4133-b7f6-71cce4a19703
+		summarizeBy: none
+		sourceColumn: SpecialOfferID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d93c65c-a5ce-41ca-ae0f-2837117d5e22
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 4400c76d-afab-402e-a2c8-0fe7560520db
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 54082daf-7bff-4116-a3e9-bc1d94d14bc2
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 8bffce55-c89d-4b47-8086-51826bfe4d88
+			defaultHierarchy: LocalDateTable_d59d0796-62af-4390-913a-caced48560c6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SpecialOfferProduct' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SpecialOfferProduct = AdventureWorks2022{[Schema="Sales",Item="SpecialOfferProduct"]}[Data]
+				in
+				    Sales_SpecialOfferProduct
+
+	annotation PBI_ResultType = Table
+

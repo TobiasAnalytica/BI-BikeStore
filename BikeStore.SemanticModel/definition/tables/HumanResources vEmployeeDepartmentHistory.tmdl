@@ -1,0 +1,118 @@
+table 'HumanResources vEmployeeDepartmentHistory'
+	lineageTag: 62a92ef7-3b04-4d6a-9602-a8bb3f4d0803
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 09ac7a6d-3cab-4217-a7e9-7782abfcadaf
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: f5fcca6b-e92e-43e4-b45e-43d9d775df57
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: bad981d6-9863-4bd2-a8ff-e7f44be39bfd
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 1a6f6f5c-2429-4bdb-a986-4f1eb775f98a
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: f515f1b7-41e8-41a7-b4d1-00d195800a7a
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: 0b3f5cb1-b61d-4b4d-a5c1-cfa37a415a53
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shift
+		dataType: string
+		lineageTag: 5e7343d0-b00b-4db5-87f3-06ecdbf4c3eb
+		summarizeBy: none
+		sourceColumn: Shift
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: a9d1cf02-fae1-4256-b22b-97d3ac8a7d6a
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		lineageTag: f38ff7dc-6f70-4aab-991a-7b865d55ef9f
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fd17180e-6e67-4c4c-8cf2-2ce1d409570c
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: 7a49f1a9-eb95-47fb-b9b7-7ac4adec34e8
+			defaultHierarchy: LocalDateTable_4ebeb4ce-be10-4253-af33-e3d2197af8be.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1fcd4336-90a2-4193-8231-063eb9e69bbc
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: 558bf6c0-2d23-4951-a2bf-12d9a7c73c17
+			defaultHierarchy: LocalDateTable_2313d45f-fbef-49c4-bf9d-55585c2d4965.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'HumanResources vEmployeeDepartmentHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    HumanResources_vEmployeeDepartmentHistory = AdventureWorks2022{[Schema="HumanResources",Item="vEmployeeDepartmentHistory"]}[Data]
+				in
+				    HumanResources_vEmployeeDepartmentHistory
+

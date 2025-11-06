@@ -1,0 +1,44 @@
+table 'Production Illustration'
+	lineageTag: 39dfa0b0-05e5-440f-ae3b-74f45fe96bbd
+
+	column IllustrationID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cd6ecea-c8c3-4996-a0b5-e8997dfac04a
+		summarizeBy: none
+		sourceColumn: IllustrationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Diagram
+		dataType: string
+		lineageTag: b1981554-a406-4094-89f1-e921139ef7ae
+		summarizeBy: none
+		sourceColumn: Diagram
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f22f4daa-79d6-4d16-831a-fbb7f93a0e2f
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 8e8e6f1b-f406-4a91-98b2-a294773398a5
+			defaultHierarchy: LocalDateTable_6540fd53-5dd5-41f9-bd71-e51a04484ffd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production Illustration' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_Illustration = AdventureWorks2022{[Schema="Production",Item="Illustration"]}[Data]
+				in
+				    Production_Illustration
+

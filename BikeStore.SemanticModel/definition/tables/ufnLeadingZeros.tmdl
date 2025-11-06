@@ -1,0 +1,24 @@
+table ufnLeadingZeros
+	lineageTag: d5baaffb-419c-457c-bef1-8884cb9aa306
+
+	column ufnLeadingZeros
+		dataType: string
+		lineageTag: 8bac9806-4d74-4dc2-915f-c8ff8bb39106
+		summarizeBy: none
+		sourceColumn: ufnLeadingZeros
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ufnLeadingZeros = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    dbo_ufnLeadingZeros = AdventureWorks2022{[Schema="dbo",Item="ufnLeadingZeros"]}[Data],
+				    #"Invoked Functiondbo_ufnLeadingZeros1" = dbo_ufnLeadingZeros(null)
+				in
+				    #"Invoked Functiondbo_ufnLeadingZeros1"
+
+	annotation PBI_ResultType = Null
+

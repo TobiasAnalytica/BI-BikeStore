@@ -1,0 +1,45 @@
+table 'Sales PersonCreditCard'
+	lineageTag: 2f8302f6-8807-48bf-ba1d-fc81e2db7b9a
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 513e8973-85dc-46d0-b5ca-a7eef4ec3c3f
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditCardID
+		dataType: int64
+		formatString: 0
+		lineageTag: 243d4252-16a6-467b-bdf7-2399acb0274c
+		summarizeBy: none
+		sourceColumn: CreditCardID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4181be4c-9ed9-44c0-bb30-1c9cbbeb9148
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 70c5be0b-9308-495c-a8de-7623b9476f4e
+			defaultHierarchy: LocalDateTable_76219e5c-0d47-4bf1-b206-fa19a6c315fa.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales PersonCreditCard' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_PersonCreditCard = AdventureWorks2022{[Schema="Sales",Item="PersonCreditCard"]}[Data]
+				in
+				    Sales_PersonCreditCard
+

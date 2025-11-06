@@ -1,0 +1,96 @@
+table ErrorLog
+	lineageTag: c3093ac6-e6fc-47f9-bc6a-7bef31126f19
+
+	column ErrorLogID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ee0ec22-e849-49dc-ac82-e6afae07c2f6
+		summarizeBy: count
+		sourceColumn: ErrorLogID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e014a8f9-e949-4df0-8e4c-e3630fc0c639
+		summarizeBy: none
+		sourceColumn: ErrorTime
+
+		variation Variation
+			isDefault
+			relationship: cad9b1c5-2b29-4209-bba4-f5cea57bcac5
+			defaultHierarchy: LocalDateTable_724ec422-369d-4748-8de2-bb228fe0840e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserName
+		dataType: string
+		lineageTag: 9a68e212-d416-4eeb-8b09-ca29009fd89c
+		summarizeBy: none
+		sourceColumn: UserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 60e311d2-5fc3-41b3-8065-d4702cb3bab7
+		summarizeBy: sum
+		sourceColumn: ErrorNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorSeverity
+		dataType: int64
+		formatString: 0
+		lineageTag: 83c48329-99c9-47e4-9e61-6a1479a94d2c
+		summarizeBy: sum
+		sourceColumn: ErrorSeverity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorState
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a27953c-ea46-49c5-9863-60817aff84e1
+		summarizeBy: sum
+		sourceColumn: ErrorState
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorProcedure
+		dataType: string
+		lineageTag: a4553dee-5efa-4b01-aed0-d9871b290e49
+		summarizeBy: none
+		sourceColumn: ErrorProcedure
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorLine
+		dataType: int64
+		formatString: 0
+		lineageTag: f6cfd1d5-a63b-4d2f-aa28-764e384693b7
+		summarizeBy: sum
+		sourceColumn: ErrorLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorMessage
+		dataType: string
+		lineageTag: d09e0858-9f26-4c3b-b4bf-02f79c612116
+		summarizeBy: none
+		sourceColumn: ErrorMessage
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ErrorLog = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    dbo_ErrorLog = AdventureWorks2022{[Schema="dbo",Item="ErrorLog"]}[Data]
+				in
+				    dbo_ErrorLog
+

@@ -1,0 +1,76 @@
+table 'Sales ShoppingCartItem'
+	lineageTag: 9eeef1ed-26f1-45cd-ad29-bdb9d51a9d06
+
+	column ShoppingCartItemID
+		dataType: int64
+		formatString: 0
+		lineageTag: bc8da678-a7ca-4b0c-b9df-52314abef10e
+		summarizeBy: count
+		sourceColumn: ShoppingCartItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShoppingCartID
+		dataType: string
+		lineageTag: 9c5991e4-1b79-4ce6-ad75-62136061e3eb
+		summarizeBy: none
+		sourceColumn: ShoppingCartID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: c2fff7e0-42b5-42d1-a47c-b3c6a501c683
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: ac7cb787-5d44-4f3a-906b-c73e66130fd3
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateCreated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f90a7d5e-2fb4-4660-8096-6bc8f99481ca
+		summarizeBy: none
+		sourceColumn: DateCreated
+
+		variation Variation
+			isDefault
+			relationship: e0cde124-7ef4-4513-960f-731036b3fad0
+			defaultHierarchy: LocalDateTable_3893e597-5eb7-4c23-b584-baf6cfafe3c4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 11b73902-1d44-4563-a01d-d32ea3e95e2b
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: f159092d-bc30-4ccb-85cd-9cbaced5a891
+			defaultHierarchy: LocalDateTable_f1735a5a-ffef-49af-8093-7a4082718639.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales ShoppingCartItem' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_ShoppingCartItem = AdventureWorks2022{[Schema="Sales",Item="ShoppingCartItem"]}[Data]
+				in
+				    Sales_ShoppingCartItem
+

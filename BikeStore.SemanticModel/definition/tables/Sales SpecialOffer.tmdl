@@ -1,0 +1,125 @@
+table 'Sales SpecialOffer'
+	lineageTag: f9d15226-5b13-41f9-9888-e576bf385f7c
+
+	column SpecialOfferID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a69958e-dcf5-4962-be69-a9f3bacf97ea
+		summarizeBy: none
+		sourceColumn: SpecialOfferID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 9d0df818-31ac-4992-93fb-c34fad6e6bd8
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiscountPct
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 84d4288b-e084-449f-b289-9f8326f45b99
+		summarizeBy: sum
+		sourceColumn: DiscountPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column Type
+		dataType: string
+		lineageTag: 71098652-d983-4d51-bd93-bd3cffa5b0ac
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: a8c45fa9-0205-4c5c-befd-0588cdf4eb90
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4f5c1804-5930-4c93-a585-672c4060d155
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: cee3532e-1585-4183-870b-4a068b918f2c
+			defaultHierarchy: LocalDateTable_0b4cf1cc-8ff2-4dca-a8fa-3b355f4a5223.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f0b3a782-1ed0-4cc9-9d2d-e4880bca95bd
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: f864d67a-4411-4cf2-99e1-98c72be56507
+			defaultHierarchy: LocalDateTable_fd32f3b7-5a13-441e-9f6a-f0a2b8a444c6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinQty
+		dataType: int64
+		formatString: 0
+		lineageTag: e68d244d-45f6-47f9-a3d4-6c40ad6d65b2
+		summarizeBy: sum
+		sourceColumn: MinQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxQty
+		dataType: int64
+		formatString: 0
+		lineageTag: 136ad2b4-61d6-47e7-9932-30b80d8fbf2b
+		summarizeBy: sum
+		sourceColumn: MaxQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 5e321d24-d3f5-4091-ba09-122d20c1046a
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 32f7c274-ac8c-4259-a668-b73d689ae9ea
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 09bf1a2f-d2c6-4fe8-b252-c64a4ff23cc8
+			defaultHierarchy: LocalDateTable_a50f71e0-b1a0-4fbd-98bb-e4ab141f55ae.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SpecialOffer' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SpecialOffer = AdventureWorks2022{[Schema="Sales",Item="SpecialOffer"]}[Data]
+				in
+				    Sales_SpecialOffer
+

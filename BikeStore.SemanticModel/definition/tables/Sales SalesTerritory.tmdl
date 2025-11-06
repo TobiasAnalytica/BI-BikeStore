@@ -1,0 +1,112 @@
+table 'Sales SalesTerritory'
+	lineageTag: 98e7d380-b4d1-440b-bfd9-70b90397453d
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 551440e6-2f41-45c9-b52e-f9ac5f889284
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: d857a9f1-9516-43ba-aa62-9a249b707ad0
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: 51261f60-e256-4b49-be35-499e337c5695
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		lineageTag: ab9bebcd-442e-45d7-885e-da4a6648506d
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesYTD
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: f5b5c19c-1c18-424e-b48e-01a84724e361
+		summarizeBy: sum
+		sourceColumn: SalesYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column SalesLastYear
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: e91cb49b-39c9-47fd-bd91-6a25621d730a
+		summarizeBy: sum
+		sourceColumn: SalesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column CostYTD
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: db212e52-fa09-41c2-b3e7-5e15eee03695
+		summarizeBy: sum
+		sourceColumn: CostYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column CostLastYear
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: d5f5a5a3-bca1-4cdd-bbcf-f58bfcec7cd5
+		summarizeBy: sum
+		sourceColumn: CostLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column rowguid
+		dataType: string
+		lineageTag: 593312b8-12a4-4b8e-b3db-ed4c34d93c53
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 917d364d-e45a-47fe-a0f5-51c88c5b615b
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 3debd124-dd1b-49a6-b887-579c792910a8
+			defaultHierarchy: LocalDateTable_2491229a-ea84-41a5-a605-218cf9371f19.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesTerritory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SalesTerritory = AdventureWorks2022{[Schema="Sales",Item="SalesTerritory"]}[Data]
+				in
+				    Sales_SalesTerritory
+

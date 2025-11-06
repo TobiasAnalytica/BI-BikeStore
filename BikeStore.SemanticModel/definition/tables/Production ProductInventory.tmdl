@@ -1,0 +1,79 @@
+table 'Production ProductInventory'
+	lineageTag: e1ee175f-717e-4499-8b45-6c75425d52bd
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7db8c533-900a-44d4-9db8-583083ee1c12
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: 418b373f-f99c-4236-b833-6421dba0ce06
+		summarizeBy: none
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shelf
+		dataType: string
+		lineageTag: f90c8d81-b0d8-4aa9-9da4-3cc0748700a3
+		summarizeBy: none
+		sourceColumn: Shelf
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bin
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dcb5524-d753-4242-a713-d3b422607a5a
+		summarizeBy: sum
+		sourceColumn: Bin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 34ead683-eba7-4799-9fbe-54d42b2e570a
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 5152fee4-fc07-4c6f-b28b-1690fee8fb6e
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 88dc162d-d0b6-464c-b98c-0292cd27464c
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: a2d4a4e3-062e-495b-9f18-4be34bd718e2
+			defaultHierarchy: LocalDateTable_11339f3b-256a-491b-ae83-b460b577a690.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductInventory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductInventory = AdventureWorks2022{[Schema="Production",Item="ProductInventory"]}[Data]
+				in
+				    Production_ProductInventory
+

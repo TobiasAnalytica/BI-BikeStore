@@ -1,0 +1,79 @@
+table 'Sales vSalesPersonSalesByFiscalYears'
+	lineageTag: edf6febe-078f-4139-8f2e-15313d6793ac
+
+	column SalesPersonID
+		dataType: int64
+		formatString: 0
+		lineageTag: 36ce3e73-1caa-4421-bfcc-22158e0376d2
+		summarizeBy: count
+		sourceColumn: SalesPersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: 57a5347c-1c84-4e92-b7d1-2af2e33d72cb
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		lineageTag: 84e87e57-0648-4387-87b1-8f6e9aa461c3
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritory
+		dataType: string
+		lineageTag: 8c7826d5-df9f-45f0-a916-d824db94ecd5
+		summarizeBy: none
+		sourceColumn: SalesTerritory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2002
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 5db11913-a692-4010-8563-ad54a10ccaa3
+		summarizeBy: sum
+		sourceColumn: 2002
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column 2003
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: 00070b4a-2232-4915-a9ec-74e706738f90
+		summarizeBy: sum
+		sourceColumn: 2003
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column 2004
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: d6d46a37-ec88-4936-8a5d-096954b73b77
+		summarizeBy: sum
+		sourceColumn: 2004
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	partition 'Sales vSalesPersonSalesByFiscalYears' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_vSalesPersonSalesByFiscalYears = AdventureWorks2022{[Schema="Sales",Item="vSalesPersonSalesByFiscalYears"]}[Data]
+				in
+				    Sales_vSalesPersonSalesByFiscalYears
+

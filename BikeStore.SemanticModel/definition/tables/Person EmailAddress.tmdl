@@ -1,0 +1,61 @@
+table 'Person EmailAddress'
+	lineageTag: 89ed7296-40df-4799-b435-1d678df1b2ae
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cb6da78-69bb-4e47-ae6e-6fe866e73dcb
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddressID
+		dataType: int64
+		formatString: 0
+		lineageTag: a0311df9-92d2-4a40-9870-a2b2b6483f6c
+		summarizeBy: count
+		sourceColumn: EmailAddressID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		lineageTag: cb1c92f7-bdcb-48a8-860e-b42eb6b766f4
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: cc11d002-67ee-471c-988b-1b6b7ebe98e8
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17454eb0-930c-47d7-8ec9-65411ed12353
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: c1234f8d-f90a-4b40-95b2-92fa7912715e
+			defaultHierarchy: LocalDateTable_1a32ca2a-23e5-4886-8a1c-f690e18d58eb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person EmailAddress' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_EmailAddress = AdventureWorks2022{[Schema="Person",Item="EmailAddress"]}[Data]
+				in
+				    Person_EmailAddress
+

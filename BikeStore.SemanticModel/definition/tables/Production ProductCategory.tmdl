@@ -1,0 +1,52 @@
+table 'Production ProductCategory'
+	lineageTag: 9d1deb3f-383b-4afd-afa3-90fc20db2efd
+
+	column ProductCategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dc0c8c0-fcb1-4e37-81f6-af5585070e24
+		summarizeBy: none
+		sourceColumn: ProductCategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 6f801eda-bf92-4e4a-b8f5-c6bef885fe32
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: a33ee734-7217-4a7c-8306-07cbc97c396c
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f6de1f9a-4276-43bd-bd05-186172bb5868
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 9c4ac14b-9ccb-438b-99ff-8aaa77d99c4f
+			defaultHierarchy: LocalDateTable_a94a8394-409f-44b9-9c07-d14c9a886feb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductCategory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductCategory = AdventureWorks2022{[Schema="Production",Item="ProductCategory"]}[Data]
+				in
+				    Production_ProductCategory
+

@@ -1,0 +1,44 @@
+table 'Production ScrapReason'
+	lineageTag: 62ccccb4-0216-4564-afbe-7ca0f8355b3a
+
+	column ScrapReasonID
+		dataType: int64
+		formatString: 0
+		lineageTag: 420ff122-ac7f-4b09-baa3-884566006dc4
+		summarizeBy: none
+		sourceColumn: ScrapReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: bb590391-6461-47d9-8fd5-1844a620b960
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 455ab5ca-a94d-44dc-87e5-7afb31d66c85
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 8951bec6-911c-42ab-afa8-666d9cfed60a
+			defaultHierarchy: LocalDateTable_e3f1c2e2-7ff7-4294-9f58-0dabba49dc6c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ScrapReason' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ScrapReason = AdventureWorks2022{[Schema="Production",Item="ScrapReason"]}[Data]
+				in
+				    Production_ScrapReason
+

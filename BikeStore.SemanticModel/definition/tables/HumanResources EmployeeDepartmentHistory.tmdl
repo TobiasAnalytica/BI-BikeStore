@@ -1,0 +1,86 @@
+table 'HumanResources EmployeeDepartmentHistory'
+	lineageTag: 26461459-beeb-4dd7-bf59-66a55bc5e5f6
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: b86903a5-c900-46cc-a13f-4b4c6fa3375c
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d1afa29-67fb-4636-9215-3a6c449478c7
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShiftID
+		dataType: int64
+		formatString: 0
+		lineageTag: a2be952e-b2ea-4de9-90fe-f1478caa530f
+		summarizeBy: none
+		sourceColumn: ShiftID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f7888f68-8f20-4f3f-b2e9-030cf1a43aca
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: f5d3afb5-317b-483a-8e44-afa8369ed1b1
+			defaultHierarchy: LocalDateTable_a9029582-9168-4c27-8bc5-10580608caa6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fcfcd2b8-9365-4281-8d1e-8ae5d37b5ef0
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: 53cbbf72-bffb-4549-a351-a0f34f325039
+			defaultHierarchy: LocalDateTable_cebcb759-5ee5-40ad-830d-3fbce3d7362b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 49323e69-e195-4325-b442-09a7e728921b
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 0c67d473-35b8-4f9a-8782-24e6baa0a5dc
+			defaultHierarchy: LocalDateTable_19b6b786-b7b1-4a09-9b8e-2adea0cda483.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'HumanResources EmployeeDepartmentHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    HumanResources_EmployeeDepartmentHistory = AdventureWorks2022{[Schema="HumanResources",Item="EmployeeDepartmentHistory"]}[Data]
+				in
+				    HumanResources_EmployeeDepartmentHistory
+

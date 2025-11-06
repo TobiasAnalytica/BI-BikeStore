@@ -1,0 +1,75 @@
+table 'Production ProductCostHistory'
+	lineageTag: 81334b8e-75d6-441a-8ce5-6a0b0953bba8
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bae5442-0c64-4378-a2bf-eceeaa97fcb7
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2730342c-25bd-4012-8296-97b5cf8bee82
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: 88b44ec2-c3da-4e05-840f-93500e7c9360
+			defaultHierarchy: LocalDateTable_36a167ac-ec93-4cdf-90cc-ad125421dd9c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7c3c59b9-5ed1-46df-8505-c39c811080dc
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: cacce4e7-8b84-42a2-a89d-0636729731af
+			defaultHierarchy: LocalDateTable_c15bc9dc-b04e-4ee1-88b2-fef0906a0044.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardCost
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: c0599c8a-2fee-4aae-bd52-257a6761542f
+		summarizeBy: sum
+		sourceColumn: StandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5959f372-8ef1-4f85-8e5a-d75b9deb020e
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: bf36f1ca-4cf8-4636-bba1-2c09d0ee8c6a
+			defaultHierarchy: LocalDateTable_8008b797-6d1e-4498-87ec-a8962fc2be06.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductCostHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductCostHistory = AdventureWorks2022{[Schema="Production",Item="ProductCostHistory"]}[Data]
+				in
+				    Production_ProductCostHistory
+

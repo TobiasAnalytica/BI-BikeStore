@@ -1,0 +1,70 @@
+table 'Sales CreditCard'
+	lineageTag: 5277f7d0-5678-4c1d-a893-c0f913242065
+
+	column CreditCardID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e631623-7810-49b8-8f92-385d53da43af
+		summarizeBy: none
+		sourceColumn: CreditCardID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardType
+		dataType: string
+		lineageTag: b6b7879f-3e98-4677-8eb2-906dbfde205d
+		summarizeBy: none
+		sourceColumn: CardType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CardNumber
+		dataType: string
+		lineageTag: a1f89a76-06c4-4a64-aa06-8fc19efaac44
+		summarizeBy: none
+		sourceColumn: CardNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExpMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: e6d3fb79-6854-43e6-9fbf-5d4e9b85788b
+		summarizeBy: sum
+		sourceColumn: ExpMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExpYear
+		dataType: int64
+		formatString: 0
+		lineageTag: dc2ea441-c97f-47ac-b068-16e778811510
+		summarizeBy: sum
+		sourceColumn: ExpYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1475418f-c2f0-4879-9f6c-ccfab42366eb
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 019a4755-7dbf-4369-a4e1-9afbc0851c77
+			defaultHierarchy: LocalDateTable_2ac368c8-3ac6-48e5-81ac-4d9c19e677ab.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales CreditCard' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_CreditCard = AdventureWorks2022{[Schema="Sales",Item="CreditCard"]}[Data]
+				in
+				    Sales_CreditCard
+

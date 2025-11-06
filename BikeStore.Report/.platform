@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "BikeStore"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0b7c46bb-9eff-494a-9e3c-05839320ebc0"
+  }
+}

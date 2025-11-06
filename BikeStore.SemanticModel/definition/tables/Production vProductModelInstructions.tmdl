@@ -1,0 +1,116 @@
+table 'Production vProductModelInstructions'
+	lineageTag: 8423fdc8-c265-4a84-a074-ec6e0b958600
+
+	column ProductModelID
+		dataType: int64
+		formatString: 0
+		lineageTag: d90537b2-cc79-42d3-a981-fd631383431b
+		summarizeBy: count
+		sourceColumn: ProductModelID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: b5175029-a358-4099-b126-0076188998f7
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Instructions
+		dataType: string
+		lineageTag: bd72ffcf-5014-4678-adf0-163a55226159
+		summarizeBy: none
+		sourceColumn: Instructions
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: af439f12-8d66-4a34-b4a7-96dd21f28519
+		summarizeBy: count
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SetupHours
+		dataType: double
+		lineageTag: fc4fa275-82ad-4cb0-8f34-68a807ac52be
+		summarizeBy: sum
+		sourceColumn: SetupHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MachineHours
+		dataType: double
+		lineageTag: 6bc355ee-bcbb-4c74-a35b-15f15cd4ace7
+		summarizeBy: sum
+		sourceColumn: MachineHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LaborHours
+		dataType: double
+		lineageTag: 7ee3e727-560f-4da7-8b09-23a108b7017f
+		summarizeBy: sum
+		sourceColumn: LaborHours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LotSize
+		dataType: int64
+		formatString: 0
+		lineageTag: da8810b1-8999-4c0c-9444-aff091d8df9e
+		summarizeBy: sum
+		sourceColumn: LotSize
+
+		annotation SummarizationSetBy = Automatic
+
+	column Step
+		dataType: string
+		lineageTag: 1fcf2ac8-0da1-4ac1-99c0-0ad59bd9b720
+		summarizeBy: none
+		sourceColumn: Step
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 5b61a2a2-816d-4a5a-8ccc-9103260b77fc
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 969ac62d-539f-475c-9d05-1dca5a08e6c8
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 3fc40728-55b2-4c5c-9768-aadcbe2acca7
+			defaultHierarchy: LocalDateTable_c9d695e2-3634-4dff-9b9e-9386f0854543.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production vProductModelInstructions' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_vProductModelInstructions = AdventureWorks2022{[Schema="Production",Item="vProductModelInstructions"]}[Data]
+				in
+				    Production_vProductModelInstructions
+

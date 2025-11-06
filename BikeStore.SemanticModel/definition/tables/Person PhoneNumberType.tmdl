@@ -1,0 +1,44 @@
+table 'Person PhoneNumberType'
+	lineageTag: 4710ca64-59d8-41fe-a6bf-469bcd343c28
+
+	column PhoneNumberTypeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d173a50-b61a-489d-887a-c0d159d3a63a
+		summarizeBy: none
+		sourceColumn: PhoneNumberTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 787ce6fa-2368-41b5-a51d-b026be3eeb97
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ea1c30dc-7892-4832-8e5e-dae093b807b7
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: d0e47123-550e-4da8-93b7-02ef64394aef
+			defaultHierarchy: LocalDateTable_f94d791d-a57c-4e7c-b7ce-88d570ecd82e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person PhoneNumberType' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_PhoneNumberType = AdventureWorks2022{[Schema="Person",Item="PhoneNumberType"]}[Data]
+				in
+				    Person_PhoneNumberType
+

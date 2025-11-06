@@ -1,0 +1,54 @@
+table 'Production vProductAndDescription'
+	lineageTag: b82212b8-71bb-4aa6-a00a-be934d807e21
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: b55450d1-0904-4bef-8657-f7427558e245
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 0c5ee4db-2963-4753-a97e-08007371c2e0
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductModel
+		dataType: string
+		lineageTag: 976f2a2d-13a8-45ec-9d26-83db76854c2c
+		summarizeBy: none
+		sourceColumn: ProductModel
+
+		annotation SummarizationSetBy = Automatic
+
+	column CultureID
+		dataType: string
+		lineageTag: 18c32c26-e9ce-481d-a230-0cfc79d074f0
+		summarizeBy: none
+		sourceColumn: CultureID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 9a51c666-73f4-4f1c-8ef8-c592118ac55c
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production vProductAndDescription' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_vProductAndDescription = AdventureWorks2022{[Schema="Production",Item="vProductAndDescription"]}[Data]
+				in
+				    Production_vProductAndDescription
+

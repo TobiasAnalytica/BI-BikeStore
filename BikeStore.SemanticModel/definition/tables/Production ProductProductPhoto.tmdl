@@ -1,0 +1,54 @@
+table 'Production ProductProductPhoto'
+	lineageTag: f1994b39-f2fe-497a-878f-ef1d848a5a51
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 849062fe-d000-40bf-b4e5-d2beb9f75962
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductPhotoID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f18f481-1b29-40ea-9f9b-005c1a3bc88d
+		summarizeBy: none
+		sourceColumn: ProductPhotoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Primary
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f54600fb-386f-404b-9d10-65afb08b0bb4
+		summarizeBy: none
+		sourceColumn: Primary
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 082c973c-3384-48ac-9cf3-f09392c47bbf
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 7c8c1a2b-1155-47e2-aa48-9d0938e96ee0
+			defaultHierarchy: LocalDateTable_9a4c5c9a-b4e1-4701-83d4-bf0914d14de0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductProductPhoto' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_ProductProductPhoto = AdventureWorks2022{[Schema="Production",Item="ProductProductPhoto"]}[Data]
+				in
+				    Production_ProductProductPhoto
+

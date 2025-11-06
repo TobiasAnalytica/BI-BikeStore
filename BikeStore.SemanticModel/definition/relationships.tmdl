@@ -1,0 +1,1192 @@
+relationship 869f8944-c3d9-467b-b21f-13ea9eb43986
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vEmployeeDepartment'.StartDate
+	toColumn: LocalDateTable_87f61bea-0bb7-4cb7-9afc-481ee4f3c965.Date
+
+relationship 7a49f1a9-eb95-47fb-b9b7-7ac4adec34e8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vEmployeeDepartmentHistory'.StartDate
+	toColumn: LocalDateTable_4ebeb4ce-be10-4253-af33-e3d2197af8be.Date
+
+relationship 558bf6c0-2d23-4951-a2bf-12d9a7c73c17
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vEmployeeDepartmentHistory'.EndDate
+	toColumn: LocalDateTable_2313d45f-fbef-49c4-bf9d-55585c2d4965.Date
+
+relationship 96d7dd96-85ca-4c71-b7ba-2a70bb7788e6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vJobCandidate'.ModifiedDate
+	toColumn: LocalDateTable_860a68fe-d699-457f-95ce-63d97d94d70d.Date
+
+relationship 04c3d40c-5706-4927-aa09-1b1e7d95b857
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vJobCandidateEducation'.'Edu.StartDate'
+	toColumn: LocalDateTable_11cff0ab-a279-4f54-b170-c9449fa3a5da.Date
+
+relationship c5eec618-40dc-4b2b-aeb7-9abf4f5c715b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vJobCandidateEducation'.'Edu.EndDate'
+	toColumn: LocalDateTable_e2fbb020-ddd0-4d51-ba11-1cc8ede066aa.Date
+
+relationship 333c0cb5-38b8-4fcf-97ed-ea5a29d2d609
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vJobCandidateEmployment'.'Emp.StartDate'
+	toColumn: LocalDateTable_577086ee-7cd7-4252-b215-7d016126e593.Date
+
+relationship 27be7fea-8fb9-480b-833c-a54edd66e21a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources vJobCandidateEmployment'.'Emp.EndDate'
+	toColumn: LocalDateTable_c92c261a-fba8-457e-8e05-6912dba9ffa3.Date
+
+relationship 47111ad0-b83e-4d47-aaab-1149a138c99d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person vAdditionalContactInfo'.ModifiedDate
+	toColumn: LocalDateTable_162d111c-d4eb-401e-8f58-ab898ee92df7.Date
+
+relationship 77e0e2f0-fd32-4b1c-b0cd-0e2ac47297e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production vProductModelCatalogDescription'.ModifiedDate
+	toColumn: LocalDateTable_4f216abb-0585-4023-aac3-ccf2ee466124.Date
+
+relationship 3fc40728-55b2-4c5c-9768-aadcbe2acca7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production vProductModelInstructions'.ModifiedDate
+	toColumn: LocalDateTable_c9d695e2-3634-4dff-9b9e-9386f0854543.Date
+
+relationship 0701bb20-94a1-4435-a80e-962b55d69701
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales vPersonDemographics'.DateFirstPurchase
+	toColumn: LocalDateTable_dccd216d-a2a4-494d-96f8-7d9402e97b33.Date
+
+relationship c40112cf-9906-4713-91c3-d581059d19b0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales vPersonDemographics'.BirthDate
+	toColumn: LocalDateTable_7ca11b31-2f7a-42a2-a919-25cedfe5535e.Date
+
+relationship 4f886ae7-4cdb-44eb-bd98-385cb3d8876f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AWBuildVersion.VersionDate
+	toColumn: LocalDateTable_42ac70ee-b5e7-4dc8-9a36-59f2a103a7fc.Date
+
+relationship 029b49aa-4558-48c2-9504-a54bd60bca44
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AWBuildVersion.ModifiedDate
+	toColumn: LocalDateTable_f157e883-39db-4a43-914d-2c7b011851ac.Date
+
+relationship 01dcb5a9-93ee-4519-8ed9-5278c6e6f818
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DatabaseLog.PostTime
+	toColumn: LocalDateTable_63958292-be53-4d43-83ea-ea7bb1b1be92.Date
+
+relationship cad9b1c5-2b29-4209-bba4-f5cea57bcac5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ErrorLog.ErrorTime
+	toColumn: LocalDateTable_724ec422-369d-4748-8de2-bb228fe0840e.Date
+
+relationship ad7023bc-5b7c-4ba9-ac0c-0d1654646678
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources Department'.ModifiedDate
+	toColumn: LocalDateTable_62eee00f-2c76-400d-8b77-dea75d726a83.Date
+
+relationship f02d9f73-6cdd-4438-80b6-96f79f3d26b6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources Employee'.BirthDate
+	toColumn: LocalDateTable_032e6fd1-b27c-4840-8c19-386c99cd1c59.Date
+
+relationship 53aa6ca3-79ec-4997-a41a-eabfb969e6cd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources Employee'.HireDate
+	toColumn: LocalDateTable_f8e16ab9-ba74-4bc3-828a-3aee07dc553a.Date
+
+relationship e1e7451b-d4d0-4417-932e-79bfeb354f40
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources Employee'.ModifiedDate
+	toColumn: LocalDateTable_b6bcfc83-266a-429e-a369-e1f0ad5055bf.Date
+
+relationship f5d3afb5-317b-483a-8e44-afa8369ed1b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources EmployeeDepartmentHistory'.StartDate
+	toColumn: LocalDateTable_a9029582-9168-4c27-8bc5-10580608caa6.Date
+
+relationship 53cbbf72-bffb-4549-a351-a0f34f325039
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources EmployeeDepartmentHistory'.EndDate
+	toColumn: LocalDateTable_cebcb759-5ee5-40ad-830d-3fbce3d7362b.Date
+
+relationship 0c67d473-35b8-4f9a-8782-24e6baa0a5dc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources EmployeeDepartmentHistory'.ModifiedDate
+	toColumn: LocalDateTable_19b6b786-b7b1-4a09-9b8e-2adea0cda483.Date
+
+relationship 8b3f7d7f-1cca-4761-b5a3-154528856240
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources EmployeePayHistory'.RateChangeDate
+	toColumn: LocalDateTable_562ac316-d8c3-4b19-8d28-77b10f5963d8.Date
+
+relationship af16c7d9-5907-4380-8f30-cd740c47fe20
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources EmployeePayHistory'.ModifiedDate
+	toColumn: LocalDateTable_2debf3d0-3565-4d8d-8847-33dce6d4887b.Date
+
+relationship a63a2bbb-63da-47f0-8ffc-d8692c8be3a9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources JobCandidate'.ModifiedDate
+	toColumn: LocalDateTable_a44f83f4-4e8e-4dcf-b3f1-0121dbd714e3.Date
+
+relationship f625c5de-fc40-41fc-bafe-1b401f2c7262
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'HumanResources Shift'.ModifiedDate
+	toColumn: LocalDateTable_a9191a5f-25dc-4d61-8c0c-82c1b6edd368.Date
+
+relationship 2ec50eac-14f5-40c2-b970-61ddd7f880d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person Address'.ModifiedDate
+	toColumn: LocalDateTable_6e323831-8534-40b0-9f7b-576469e0ed79.Date
+
+relationship 3ebe8643-24e7-4a32-8593-ab1d88612852
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person AddressType'.ModifiedDate
+	toColumn: LocalDateTable_75400c81-d348-4cbd-8cc5-2a43b3b1cafe.Date
+
+relationship 44468264-8cb6-424d-b6bb-2976bc3eca81
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person BusinessEntity'.ModifiedDate
+	toColumn: LocalDateTable_8a8424b4-dc8f-448a-9e0b-d706ae463e03.Date
+
+relationship 2a9c2213-7690-4249-98e5-f1e1eac6dc8e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person BusinessEntityAddress'.ModifiedDate
+	toColumn: LocalDateTable_16e2dde3-f025-4c0b-9ab9-8b3e08799fb7.Date
+
+relationship 44e506f5-0faf-484f-b182-558ab9326efa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person BusinessEntityContact'.ModifiedDate
+	toColumn: LocalDateTable_dc471bc5-8c29-4dd5-921a-4108e1d09e7f.Date
+
+relationship ae0f6e85-dc29-4cca-8b9d-c1bca7acfbc7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person ContactType'.ModifiedDate
+	toColumn: LocalDateTable_85ebbab4-85f4-4cdd-a6e5-3cd27234fe13.Date
+
+relationship 11f4cd3c-5a3a-49d2-a664-47d423430634
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person CountryRegion'.ModifiedDate
+	toColumn: LocalDateTable_cecab023-6b68-4198-93c2-d8b6fbbfbf85.Date
+
+relationship c1234f8d-f90a-4b40-95b2-92fa7912715e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person EmailAddress'.ModifiedDate
+	toColumn: LocalDateTable_1a32ca2a-23e5-4886-8a1c-f690e18d58eb.Date
+
+relationship 171661d9-00d4-47ea-ba7e-a11656a1af44
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person Password'.ModifiedDate
+	toColumn: LocalDateTable_f9cabc6f-e22e-4149-8a0b-7a8a78a8cdae.Date
+
+relationship 1743c69b-f781-4f09-9229-1f4db9e30955
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person Person'.ModifiedDate
+	toColumn: LocalDateTable_2cf5e736-2fbc-4afd-8f93-22dddb28b6c6.Date
+
+relationship d43f3579-1ec4-4736-850c-8aae74ed290d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person PersonPhone'.ModifiedDate
+	toColumn: LocalDateTable_fbcef6f7-6035-4860-9f79-b23b7995477f.Date
+
+relationship d0e47123-550e-4da8-93b7-02ef64394aef
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person PhoneNumberType'.ModifiedDate
+	toColumn: LocalDateTable_f94d791d-a57c-4e7c-b7ce-88d570ecd82e.Date
+
+relationship e60663bc-a2ff-4860-84f5-7ca1f5f68443
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Person StateProvince'.ModifiedDate
+	toColumn: LocalDateTable_adee9183-c699-4f02-8425-d5851a021349.Date
+
+relationship 46cad565-4fbd-48b6-b491-1748204fa426
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production BillOfMaterials'.StartDate
+	toColumn: LocalDateTable_bc5d97e2-f61d-4d72-a943-9fb0de46b9b3.Date
+
+relationship 066b913c-1332-45be-a13b-c17fbce1eeca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production BillOfMaterials'.EndDate
+	toColumn: LocalDateTable_c83759b0-e0f8-49bb-b22d-0c28624ab10b.Date
+
+relationship 29e59697-9e49-4c1d-8f5d-a158792f90f0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production BillOfMaterials'.ModifiedDate
+	toColumn: LocalDateTable_9254f3a4-2058-4f99-bdae-c0f06db510c3.Date
+
+relationship 578f4911-8a41-4b38-953d-cc3d80a766fd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Culture'.ModifiedDate
+	toColumn: LocalDateTable_36f9ac14-186a-4074-915a-111066051d99.Date
+
+relationship eecf6155-0957-4b49-899f-decb4bd7b7f2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Document'.ModifiedDate
+	toColumn: LocalDateTable_c1e0d976-b564-4608-a4ca-d0b222cc5d61.Date
+
+relationship 8e8e6f1b-f406-4a91-98b2-a294773398a5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Illustration'.ModifiedDate
+	toColumn: LocalDateTable_6540fd53-5dd5-41f9-bd71-e51a04484ffd.Date
+
+relationship 41e6cfa4-bf99-46a3-adca-4b3eb6a4443f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Location'.ModifiedDate
+	toColumn: LocalDateTable_2a7aac0f-8331-457e-9b07-9eb360113920.Date
+
+relationship 8818c410-1ae6-4993-bc64-6c163a395659
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Product'.SellStartDate
+	toColumn: LocalDateTable_88735958-ba21-4079-a711-f21b21c2b724.Date
+
+relationship 29442991-b921-4bce-a219-facfed2e8a0e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Product'.SellEndDate
+	toColumn: LocalDateTable_c817bba4-245b-45fa-aff7-5805420ead0b.Date
+
+relationship a81ea09f-9845-4e42-8b63-3ce5e0d435f3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Product'.DiscontinuedDate
+	toColumn: LocalDateTable_a134c5f2-eac5-4794-9092-d1b414c1a598.Date
+
+relationship eb913bdb-be74-47b1-bc36-e21c86e93c2b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production Product'.ModifiedDate
+	toColumn: LocalDateTable_cf1523e8-91c7-48f5-9647-a5fc5a605aff.Date
+
+relationship 9c4ac14b-9ccb-438b-99ff-8aaa77d99c4f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductCategory'.ModifiedDate
+	toColumn: LocalDateTable_a94a8394-409f-44b9-9c07-d14c9a886feb.Date
+
+relationship 88b44ec2-c3da-4e05-840f-93500e7c9360
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductCostHistory'.StartDate
+	toColumn: LocalDateTable_36a167ac-ec93-4cdf-90cc-ad125421dd9c.Date
+
+relationship cacce4e7-8b84-42a2-a89d-0636729731af
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductCostHistory'.EndDate
+	toColumn: LocalDateTable_c15bc9dc-b04e-4ee1-88b2-fef0906a0044.Date
+
+relationship bf36f1ca-4cf8-4636-bba1-2c09d0ee8c6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductCostHistory'.ModifiedDate
+	toColumn: LocalDateTable_8008b797-6d1e-4498-87ec-a8962fc2be06.Date
+
+relationship efc27c1f-5548-49a1-a662-9f78be35baaa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductDescription'.ModifiedDate
+	toColumn: LocalDateTable_4ecb0ed5-5650-4643-9629-5ba259226a9f.Date
+
+relationship 0a434f10-7cca-4c97-96ad-407e203d75a0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductDocument'.ModifiedDate
+	toColumn: LocalDateTable_b1917c85-0337-4c6c-9a24-4bac91cb1d16.Date
+
+relationship a2d4a4e3-062e-495b-9f18-4be34bd718e2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductInventory'.ModifiedDate
+	toColumn: LocalDateTable_11339f3b-256a-491b-ae83-b460b577a690.Date
+
+relationship 7d34364f-2f97-4515-8950-177cfdcb7a75
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductListPriceHistory'.StartDate
+	toColumn: LocalDateTable_be3b81e7-ded8-47b8-83cb-8f8549f29b55.Date
+
+relationship 05751438-905b-489d-8308-e630bd297041
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductListPriceHistory'.EndDate
+	toColumn: LocalDateTable_ece2a480-6d11-40af-be8d-0ab7115ece73.Date
+
+relationship 21b8cf2a-14a7-4a54-a8d8-22c73ecd4348
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductListPriceHistory'.ModifiedDate
+	toColumn: LocalDateTable_c16e1df1-ddb8-4d39-a0e4-f0e044b2b9e7.Date
+
+relationship 8a8d7cba-5513-4e72-a275-7c40717062f9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductModel'.ModifiedDate
+	toColumn: LocalDateTable_9496eede-3985-4b78-b2a3-82372d6a157e.Date
+
+relationship e7da1eaf-8041-4108-afdd-699f2c3edbeb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductModelIllustration'.ModifiedDate
+	toColumn: LocalDateTable_60c05091-7b6f-4896-8d0b-9737f14eac05.Date
+
+relationship 64ae57d4-279a-4f9f-98aa-dd39a34ae401
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductModelProductDescriptionCulture'.ModifiedDate
+	toColumn: LocalDateTable_55d943a3-d2c6-4ada-b7fe-810cd3c80191.Date
+
+relationship 789decd7-5ece-49fc-809f-c6eabae6969f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductPhoto'.ModifiedDate
+	toColumn: LocalDateTable_3babc1fd-e8a1-4a15-826d-18d4c837c439.Date
+
+relationship 7c8c1a2b-1155-47e2-aa48-9d0938e96ee0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductProductPhoto'.ModifiedDate
+	toColumn: LocalDateTable_9a4c5c9a-b4e1-4701-83d4-bf0914d14de0.Date
+
+relationship 426d6834-c90d-4d87-87db-d27902262efd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductReview'.ReviewDate
+	toColumn: LocalDateTable_052ab36e-837e-4e59-9fb0-a4a84b22bdd4.Date
+
+relationship abcb4eef-ce03-420a-b1d8-7fc363240134
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductReview'.ModifiedDate
+	toColumn: LocalDateTable_f8517164-32fa-4085-bf87-3ebf2a215671.Date
+
+relationship 91b9f2f2-c04f-4d77-886b-0c6cd44922df
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ProductSubcategory'.ModifiedDate
+	toColumn: LocalDateTable_e7e3ca3f-6284-47d6-b1f8-5c8126220402.Date
+
+relationship 8951bec6-911c-42ab-afa8-666d9cfed60a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production ScrapReason'.ModifiedDate
+	toColumn: LocalDateTable_e3f1c2e2-7ff7-4294-9f58-0dabba49dc6c.Date
+
+relationship 00b65115-9a46-416a-8734-382b3107fd94
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production TransactionHistory'.TransactionDate
+	toColumn: LocalDateTable_10cb8544-9361-4e03-b9f0-09ad498148e5.Date
+
+relationship ef326e13-ae52-4771-945f-abcaf88f2490
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production TransactionHistory'.ModifiedDate
+	toColumn: LocalDateTable_b4c40341-116c-4921-be2c-3c20c80700fd.Date
+
+relationship 418dd0f2-e39b-4644-a752-3beca2d8f729
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production TransactionHistoryArchive'.TransactionDate
+	toColumn: LocalDateTable_54cea118-2315-4db3-9cae-99ec75c1796e.Date
+
+relationship 1ef3e4f8-16ce-46ad-93c3-d7559c0ce3db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production TransactionHistoryArchive'.ModifiedDate
+	toColumn: LocalDateTable_bf1bb126-d0af-4f48-8bbf-1cc67085546f.Date
+
+relationship 8b9a446f-44c9-4e5c-aa4a-15bc699c1280
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production UnitMeasure'.ModifiedDate
+	toColumn: LocalDateTable_b5bc7f82-fc10-4d61-982e-9a06b5175bb3.Date
+
+relationship 61924e24-c519-4622-b0b8-dff2a7e719d4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrder'.StartDate
+	toColumn: LocalDateTable_77d0e502-9367-4ded-b24f-ec4f3b3320e0.Date
+
+relationship 1484056a-dc02-4370-8764-b3a26b1d3f6c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrder'.EndDate
+	toColumn: LocalDateTable_eda6015d-c7c9-4e31-8773-1c339706528f.Date
+
+relationship b36c6c5e-a52c-4a42-917e-7f6a4e8199f0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrder'.DueDate
+	toColumn: LocalDateTable_d96073bb-0891-4688-a320-1773cc55a2e7.Date
+
+relationship 3737701a-a5ee-4aad-896c-d422dfe2d17d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrder'.ModifiedDate
+	toColumn: LocalDateTable_d357258a-a134-4bfa-b049-7f66d0faf027.Date
+
+relationship 30aad149-0793-4b4f-930d-f45964227339
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrderRouting'.ScheduledStartDate
+	toColumn: LocalDateTable_6894f93e-2306-4ab3-a96b-27557224e5e1.Date
+
+relationship 25da1099-6931-45ad-b4a5-ad81230a806d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrderRouting'.ScheduledEndDate
+	toColumn: LocalDateTable_66ca9e20-dd72-451b-b5ac-042ebe361c16.Date
+
+relationship 09999918-2e1f-439f-a0c7-b84e7877e7c8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrderRouting'.ActualStartDate
+	toColumn: LocalDateTable_9dd16dcf-625b-408a-b563-433a1b6de2be.Date
+
+relationship dd1afeb8-758d-4bcd-a208-9796079022e5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrderRouting'.ActualEndDate
+	toColumn: LocalDateTable_ce82a2cb-48ec-4a52-b03a-418bfdd0336e.Date
+
+relationship ccc9b221-19dc-48b8-ac2b-1eee78396879
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Production WorkOrderRouting'.ModifiedDate
+	toColumn: LocalDateTable_a11ca7d1-af2b-42a7-83b4-02974269cd09.Date
+
+relationship 4622f3e8-1011-4a80-813a-c26799a6b458
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing ProductVendor'.LastReceiptDate
+	toColumn: LocalDateTable_d8fa9d91-9966-4166-b895-4c94224d285f.Date
+
+relationship be4dc5bc-565f-4ea9-99d7-1b488866a1b7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing ProductVendor'.ModifiedDate
+	toColumn: LocalDateTable_166bbcd7-1bad-4e24-963f-7edb2e412fb3.Date
+
+relationship 50652789-4114-4c12-97e5-5c7e9dcc1908
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing PurchaseOrderDetail'.DueDate
+	toColumn: LocalDateTable_1f684c00-fc02-4b73-9a1e-09cb2e7087ed.Date
+
+relationship bc40413e-7a9c-4339-8020-567476026b06
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing PurchaseOrderDetail'.ModifiedDate
+	toColumn: LocalDateTable_c1c25326-2348-4791-9e0a-3eb288030cc9.Date
+
+relationship 3acfbf50-c312-42fc-a533-42431faf1494
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing PurchaseOrderHeader'.OrderDate
+	toColumn: LocalDateTable_7b6eab1b-20d1-40bb-8a07-fb08d658a4de.Date
+
+relationship c7244c49-1a08-4141-b8cb-d14cb25e5827
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing PurchaseOrderHeader'.ShipDate
+	toColumn: LocalDateTable_75131dc8-2912-4f59-a747-2ccd836babd7.Date
+
+relationship 7495a88a-e029-4c4e-910c-53b104f51c27
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing PurchaseOrderHeader'.ModifiedDate
+	toColumn: LocalDateTable_cc4afff3-c0ee-404f-9f7d-d1f7dfa9418f.Date
+
+relationship 21b4b4f4-a77f-43ba-b998-b22a4897a893
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing ShipMethod'.ModifiedDate
+	toColumn: LocalDateTable_45948734-7a06-4c56-82ca-17e175472c1a.Date
+
+relationship 54ea0161-a24d-48fa-a6ce-7ef7764c5e4e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchasing Vendor'.ModifiedDate
+	toColumn: LocalDateTable_ba3ced19-3b32-4401-b986-856597ff3122.Date
+
+relationship e67798f8-eff0-4693-8d6b-c601e1b88e9e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales CountryRegionCurrency'.ModifiedDate
+	toColumn: LocalDateTable_318731e4-d15e-45b7-a259-560e25d35dfe.Date
+
+relationship 019a4755-7dbf-4369-a4e1-9afbc0851c77
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales CreditCard'.ModifiedDate
+	toColumn: LocalDateTable_2ac368c8-3ac6-48e5-81ac-4d9c19e677ab.Date
+
+relationship 1f78b20c-7ad3-4f38-b2b9-1331266c9f4c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales Currency'.ModifiedDate
+	toColumn: LocalDateTable_4d32b6cc-5185-4d9b-a61e-7b4196942576.Date
+
+relationship b80aaa27-5961-4c6a-87f0-3617070f9f80
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales CurrencyRate'.CurrencyRateDate
+	toColumn: LocalDateTable_c80ab019-7e11-42fe-91b7-f6dbadba485a.Date
+
+relationship a63b4e91-bb58-4df7-b9d3-887a69cbcb5c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales CurrencyRate'.ModifiedDate
+	toColumn: LocalDateTable_8b57c4d1-b7e2-4e7e-a65b-fc2a59c87340.Date
+
+relationship a1f889b4-984e-4aa7-9b0e-d3c652720bd6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales Customer'.ModifiedDate
+	toColumn: LocalDateTable_c0809de9-ed11-40d1-9321-44ed8c533b79.Date
+
+relationship 70c5be0b-9308-495c-a8de-7623b9476f4e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales PersonCreditCard'.ModifiedDate
+	toColumn: LocalDateTable_76219e5c-0d47-4bf1-b206-fa19a6c315fa.Date
+
+relationship 6daa6248-f5cb-4759-bedc-cb55906a17ec
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesOrderDetail'.ModifiedDate
+	toColumn: LocalDateTable_3fc61a21-ea1d-4862-ab39-91a061030e8c.Date
+
+relationship 1312608b-a8a4-453e-8004-e9049d88fddf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesOrderHeader'.OrderDate
+	toColumn: LocalDateTable_c426b0f7-69b1-4212-992c-3b2670ceb051.Date
+
+relationship d87c563d-1d7b-40f1-b47e-c90af898de56
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesOrderHeader'.DueDate
+	toColumn: LocalDateTable_99fa225e-dbf6-459c-bb05-c427b40785ba.Date
+
+relationship a9f87ca2-db6a-4c15-9db8-e6395892fa87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesOrderHeader'.ShipDate
+	toColumn: LocalDateTable_af05ffc2-f49b-4a0f-900f-461355386fcb.Date
+
+relationship 74d72697-e6bd-4dad-8eb8-bdacc8bbff52
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesOrderHeader'.ModifiedDate
+	toColumn: LocalDateTable_5e19926c-e3c6-4287-b061-d8dc196d6391.Date
+
+relationship 6e91f2f2-f38b-488e-9359-1a56b6202215
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesOrderHeaderSalesReason'.ModifiedDate
+	toColumn: LocalDateTable_d9c5162f-02b2-4b3c-a379-a8cb21af6f97.Date
+
+relationship 3b8b323b-c0bf-4657-b1a4-1508a0272728
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesPerson'.ModifiedDate
+	toColumn: LocalDateTable_5e12f63a-3292-40c5-ac44-97fd13518b39.Date
+
+relationship de1fcaf3-d3a5-45cb-a283-44d99552bbca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesPersonQuotaHistory'.QuotaDate
+	toColumn: LocalDateTable_25dded0f-b61c-4de5-b716-fa0dd85e494e.Date
+
+relationship 78167713-29f7-451c-b4e2-1cc2425e88d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesPersonQuotaHistory'.ModifiedDate
+	toColumn: LocalDateTable_f95b8a9b-6c74-4a7b-adca-f340b8456955.Date
+
+relationship 5890b897-b8e8-4ae5-a7d9-01bc5df690c1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesReason'.ModifiedDate
+	toColumn: LocalDateTable_fa85cdc5-e764-411c-bf16-4a0984a9ab38.Date
+
+relationship 733d3719-9640-4414-b13e-958bd182747d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesTaxRate'.ModifiedDate
+	toColumn: LocalDateTable_dac2e5e5-b1a1-42e0-bda3-46decc0a7d6b.Date
+
+relationship 3debd124-dd1b-49a6-b887-579c792910a8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesTerritory'.ModifiedDate
+	toColumn: LocalDateTable_2491229a-ea84-41a5-a605-218cf9371f19.Date
+
+relationship 0a40c62b-c386-40c3-9514-c1c82024ff23
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesTerritoryHistory'.StartDate
+	toColumn: LocalDateTable_555bcb0a-60d5-46f2-89de-64ffedb7f904.Date
+
+relationship ed344886-7a9c-4366-b1e0-d2efa3c83a7f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesTerritoryHistory'.EndDate
+	toColumn: LocalDateTable_ea48d566-6828-4f4e-a2bf-fbd29b6eba70.Date
+
+relationship a3447174-3ecb-4aff-8e4c-726526e5eed4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SalesTerritoryHistory'.ModifiedDate
+	toColumn: LocalDateTable_a797167f-a9b5-4105-9f3f-b1f7fce76a31.Date
+
+relationship e0cde124-7ef4-4513-960f-731036b3fad0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales ShoppingCartItem'.DateCreated
+	toColumn: LocalDateTable_3893e597-5eb7-4c23-b584-baf6cfafe3c4.Date
+
+relationship f159092d-bc30-4ccb-85cd-9cbaced5a891
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales ShoppingCartItem'.ModifiedDate
+	toColumn: LocalDateTable_f1735a5a-ffef-49af-8093-7a4082718639.Date
+
+relationship cee3532e-1585-4183-870b-4a068b918f2c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SpecialOffer'.StartDate
+	toColumn: LocalDateTable_0b4cf1cc-8ff2-4dca-a8fa-3b355f4a5223.Date
+
+relationship f864d67a-4411-4cf2-99e1-98c72be56507
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SpecialOffer'.EndDate
+	toColumn: LocalDateTable_fd32f3b7-5a13-441e-9f6a-f0a2b8a444c6.Date
+
+relationship 09bf1a2f-d2c6-4fe8-b252-c64a4ff23cc8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SpecialOffer'.ModifiedDate
+	toColumn: LocalDateTable_a50f71e0-b1a0-4fbd-98bb-e4ab141f55ae.Date
+
+relationship 8bffce55-c89d-4b47-8086-51826bfe4d88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales SpecialOfferProduct'.ModifiedDate
+	toColumn: LocalDateTable_d59d0796-62af-4390-913a-caced48560c6.Date
+
+relationship 57ae5b98-e349-4045-afa1-ace66049bb08
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales Store'.ModifiedDate
+	toColumn: LocalDateTable_4969546c-7793-4b3f-ba51-901127ec2cb7.Date
+
+relationship 1471cd72-714d-47db-9dd4-68d47f9f8a62
+	fromColumn: 'HumanResources EmployeeDepartmentHistory'.DepartmentID
+	toColumn: 'HumanResources Department'.DepartmentID
+
+	annotation PBI_IsFromSource = FS
+
+relationship df1df978-1298-45eb-9f68-01486bc47a15
+	fromColumn: 'HumanResources EmployeeDepartmentHistory'.BusinessEntityID
+	toColumn: 'HumanResources Employee'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 66ab8522-a1c0-4fde-b580-b9f10e7a61ce
+	fromColumn: 'HumanResources EmployeeDepartmentHistory'.ShiftID
+	toColumn: 'HumanResources Shift'.ShiftID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f6fdd63b-94e8-4167-811f-c56cf06b0dbb
+	fromColumn: 'HumanResources EmployeePayHistory'.BusinessEntityID
+	toColumn: 'HumanResources Employee'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6d525179-8cd1-451a-a621-87f9d658c9d6
+	fromColumn: 'HumanResources JobCandidate'.BusinessEntityID
+	toColumn: 'HumanResources Employee'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 23a6738d-2213-4acb-80d5-a52cf629c0aa
+	fromColumn: 'Person Address'.StateProvinceID
+	toColumn: 'Person StateProvince'.StateProvinceID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7d5f86c9-88e2-472e-8f68-a4f9aef18ca8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person BusinessEntityAddress'.AddressID
+	toColumn: 'Person Address'.AddressID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5ddf3502-2c3c-49bc-8206-c61bffee83b5
+	fromColumn: 'Person BusinessEntityAddress'.AddressTypeID
+	toColumn: 'Person AddressType'.AddressTypeID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 732c0822-3e1b-4b4f-8961-97d8d12a8346
+	fromColumn: 'Person BusinessEntityAddress'.BusinessEntityID
+	toColumn: 'Person BusinessEntity'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 71991c60-5f22-42ce-8a76-be10b3c24b15
+	fromColumn: 'Person BusinessEntityContact'.BusinessEntityID
+	toColumn: 'Person BusinessEntity'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship c74c4827-2ce2-4abd-bd07-c52c7fd62b84
+	fromColumn: 'Person BusinessEntityContact'.ContactTypeID
+	toColumn: 'Person ContactType'.ContactTypeID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 1cbf4947-0024-45ff-a0b9-b6d94a795e87
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person BusinessEntityContact'.PersonID
+	toColumn: 'Person Person'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 04e4555a-4589-44d6-815c-d0780d6df64a
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person EmailAddress'.BusinessEntityID
+	toColumn: 'Person Person'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship abd24bf8-580e-4720-8dc0-a2787bf3e8d9
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person Person'.BusinessEntityID
+	toColumn: 'HumanResources Employee'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5d89d148-8aec-42cd-b677-45e61814e183
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person Person'.BusinessEntityID
+	toColumn: 'Person BusinessEntity'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 75fd815c-a0ab-4236-919a-19b8f9185d1f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person Person'.BusinessEntityID
+	toColumn: 'Person Password'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f9b17be6-cccf-4af0-bd7d-0dcf28807619
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Person PersonPhone'.BusinessEntityID
+	toColumn: 'Person Person'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship b994aff0-79d0-40ac-b0df-207467d3cdf3
+	fromColumn: 'Person PersonPhone'.PhoneNumberTypeID
+	toColumn: 'Person PhoneNumberType'.PhoneNumberTypeID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 4d361f58-396a-4407-b0cd-aa3a52e82cab
+	fromColumn: 'Person StateProvince'.CountryRegionCode
+	toColumn: 'Person CountryRegion'.CountryRegionCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 544a1147-6482-40a3-8d2f-60aec13c3591
+	fromColumn: 'Person StateProvince'.TerritoryID
+	toColumn: 'Sales SalesTerritory'.TerritoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f094b911-0e67-44ab-a738-30be9bbe7d15
+	fromColumn: 'Production BillOfMaterials'.ComponentID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship ab2a2ca3-c908-4b7d-a565-2aa25632c031
+	isActive: false
+	fromColumn: 'Production BillOfMaterials'.ProductAssemblyID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8685ec46-e7db-4d93-b9b8-9f818485ca02
+	fromColumn: 'Production BillOfMaterials'.UnitMeasureCode
+	toColumn: 'Production UnitMeasure'.UnitMeasureCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0636d71c-eae6-408f-8665-247695f76728
+	fromColumn: 'Production Document'.Owner
+	toColumn: 'HumanResources Employee'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0181a9d2-e041-4d70-84cb-87625547dbf7
+	fromColumn: 'Production Product'.ProductModelID
+	toColumn: 'Production ProductModel'.ProductModelID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 374153bd-22b4-43f7-81e0-a32545730162
+	fromColumn: 'Production Product'.ProductSubcategoryID
+	toColumn: 'Production ProductSubcategory'.ProductSubcategoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 38563710-2d9f-4bd4-bfd1-07c5da89f7e2
+	isActive: false
+	fromColumn: 'Production Product'.SizeUnitMeasureCode
+	toColumn: 'Production UnitMeasure'.UnitMeasureCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship db4d82f0-50c2-4b0f-8166-991f3e5f5ed7
+	isActive: false
+	fromColumn: 'Production Product'.WeightUnitMeasureCode
+	toColumn: 'Production UnitMeasure'.UnitMeasureCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 3fb71ec9-a16c-4554-a646-eb0c0ed4c30a
+	fromColumn: 'Production ProductCostHistory'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship d34a9600-b350-405b-8313-f2beef6c2995
+	fromColumn: 'Production ProductDocument'.DocumentNode
+	toColumn: 'Production Document'.DocumentNode
+
+	annotation PBI_IsFromSource = FS
+
+relationship f32c00b4-c87c-42d7-a326-720183f7f555
+	fromColumn: 'Production ProductDocument'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7a97c85d-880a-4081-bca0-fbbd03d8b888
+	fromColumn: 'Production ProductInventory'.LocationID
+	toColumn: 'Production Location'.LocationID
+
+	annotation PBI_IsFromSource = FS
+
+relationship b7b0f245-14a5-454b-b1e8-7d08cf0b66e4
+	fromColumn: 'Production ProductInventory'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 41eb135c-44f3-4eff-b8b4-5e2bfef642b9
+	fromColumn: 'Production ProductListPriceHistory'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 3a50550a-677b-49bc-b1d9-fe7e9202e915
+	fromColumn: 'Production ProductModelIllustration'.IllustrationID
+	toColumn: 'Production Illustration'.IllustrationID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7343c893-07d3-4ede-baf5-a609f381b667
+	fromColumn: 'Production ProductModelIllustration'.ProductModelID
+	toColumn: 'Production ProductModel'.ProductModelID
+
+	annotation PBI_IsFromSource = FS
+
+relationship da2e87ef-8c66-4b48-aea0-e72b71fbfcaf
+	fromColumn: 'Production ProductModelProductDescriptionCulture'.CultureID
+	toColumn: 'Production Culture'.CultureID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f64c9893-e380-4a5a-bd5f-3895029f5a5a
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Production ProductModelProductDescriptionCulture'.ProductDescriptionID
+	toColumn: 'Production ProductDescription'.ProductDescriptionID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 23f98b8f-ef2b-4568-a62d-f062db4330f4
+	fromColumn: 'Production ProductModelProductDescriptionCulture'.ProductModelID
+	toColumn: 'Production ProductModel'.ProductModelID
+
+	annotation PBI_IsFromSource = FS
+
+relationship c66186b9-e5bf-475b-80dc-b982deb63e60
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Production ProductProductPhoto'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship bf990856-a8b0-4b29-a2cf-43a0b96e5c26
+	fromColumn: 'Production ProductProductPhoto'.ProductPhotoID
+	toColumn: 'Production ProductPhoto'.ProductPhotoID
+
+	annotation PBI_IsFromSource = FS
+
+relationship a5f722f1-6560-4b38-9b12-469eea78ff2c
+	fromColumn: 'Production ProductReview'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f83b6985-7e27-49a2-9505-64801a2072ef
+	fromColumn: 'Production ProductSubcategory'.ProductCategoryID
+	toColumn: 'Production ProductCategory'.ProductCategoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 50e7622b-6633-40a9-9eba-9ee8161a5809
+	fromColumn: 'Production TransactionHistory'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship b5d71411-7ea2-4b41-8ab0-9c417f43321b
+	fromColumn: 'Production WorkOrder'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7047aa28-a21f-42bb-8c33-2287e12672ae
+	fromColumn: 'Production WorkOrder'.ScrapReasonID
+	toColumn: 'Production ScrapReason'.ScrapReasonID
+
+	annotation PBI_IsFromSource = FS
+
+relationship fc5fdb95-09fe-4536-a254-8cdcb333be84
+	fromColumn: 'Production WorkOrderRouting'.LocationID
+	toColumn: 'Production Location'.LocationID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f19159e6-5fc9-4d8e-b543-d3b6fac896f8
+	fromColumn: 'Production WorkOrderRouting'.WorkOrderID
+	toColumn: 'Production WorkOrder'.WorkOrderID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5de7697e-2895-4584-9c38-542fdfc08c03
+	fromColumn: 'Purchasing ProductVendor'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6549ff53-f0d0-463a-8ab0-beff544d5687
+	fromColumn: 'Purchasing ProductVendor'.UnitMeasureCode
+	toColumn: 'Production UnitMeasure'.UnitMeasureCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship af799c05-48f8-4417-ae4e-dde4aae3c7b9
+	fromColumn: 'Purchasing ProductVendor'.BusinessEntityID
+	toColumn: 'Purchasing Vendor'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7ce76342-85db-4de3-b189-56b96b391abf
+	fromColumn: 'Purchasing PurchaseOrderDetail'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5dfee311-6cad-4796-a218-a462d541b491
+	fromColumn: 'Purchasing PurchaseOrderDetail'.PurchaseOrderID
+	toColumn: 'Purchasing PurchaseOrderHeader'.PurchaseOrderID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f4f81572-8d31-4938-a5b4-fa507b7035e3
+	fromColumn: 'Purchasing PurchaseOrderHeader'.EmployeeID
+	toColumn: 'HumanResources Employee'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship cae6747b-67ef-4588-8fcb-9616c6a20d5f
+	fromColumn: 'Purchasing PurchaseOrderHeader'.ShipMethodID
+	toColumn: 'Purchasing ShipMethod'.ShipMethodID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 47665116-a4b8-4d8c-a7bd-ddabd6a16b8c
+	fromColumn: 'Purchasing PurchaseOrderHeader'.VendorID
+	toColumn: 'Purchasing Vendor'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship e9265ce8-3395-45fa-9f31-7c1b203e3b99
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Purchasing Vendor'.BusinessEntityID
+	toColumn: 'Person BusinessEntity'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 750f9139-ebf6-4078-ae11-23ec5e131048
+	fromColumn: 'Sales CountryRegionCurrency'.CountryRegionCode
+	toColumn: 'Person CountryRegion'.CountryRegionCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 1405ab1d-6b22-4b4a-b8ed-039f3599acd0
+	fromColumn: 'Sales CountryRegionCurrency'.CurrencyCode
+	toColumn: 'Sales Currency'.CurrencyCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 90592646-8b3b-4dbe-b863-a49d86074f22
+	fromColumn: 'Sales CurrencyRate'.FromCurrencyCode
+	toColumn: 'Sales Currency'.CurrencyCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship bd58ac8f-2ba3-44e5-b637-d091aacbb023
+	isActive: false
+	fromColumn: 'Sales CurrencyRate'.ToCurrencyCode
+	toColumn: 'Sales Currency'.CurrencyCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5879d6e4-a2f6-43d9-bdc7-b467e9e0f482
+	fromColumn: 'Sales Customer'.PersonID
+	toColumn: 'Person Person'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6e96535a-0c24-4198-80a1-5a06ae3f847b
+	fromColumn: 'Sales Customer'.TerritoryID
+	toColumn: 'Sales SalesTerritory'.TerritoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship c3c1cc36-cee0-4223-bd96-8fce14f9bab8
+	fromColumn: 'Sales Customer'.StoreID
+	toColumn: 'Sales Store'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship c81cee96-7e82-4bc4-9164-2ca953c84d95
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Sales PersonCreditCard'.BusinessEntityID
+	toColumn: 'Person Person'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 66ceac69-1288-49db-b359-8f965a0d0543
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Sales PersonCreditCard'.CreditCardID
+	toColumn: 'Sales CreditCard'.CreditCardID
+
+	annotation PBI_IsFromSource = FS
+
+relationship b79ac31a-6e8c-4e9c-a6ba-0dbc9f868acf
+	fromColumn: 'Sales SalesOrderDetail'.SalesOrderID
+	toColumn: 'Sales SalesOrderHeader'.SalesOrderID
+
+	annotation PBI_IsFromSource = FS
+
+relationship d3c764c6-8dd6-420e-b97d-dbefbdb7709b
+	fromColumn: 'Sales SalesOrderHeader'.BillToAddressID
+	toColumn: 'Person Address'.AddressID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 435e98e7-9b7c-4c8a-980e-9e7c7f0630a9
+	isActive: false
+	fromColumn: 'Sales SalesOrderHeader'.ShipToAddressID
+	toColumn: 'Person Address'.AddressID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 977fbc50-a18e-4eec-8c6a-097fc218d2e5
+	fromColumn: 'Sales SalesOrderHeader'.ShipMethodID
+	toColumn: 'Purchasing ShipMethod'.ShipMethodID
+
+	annotation PBI_IsFromSource = FS
+
+relationship f071cfc4-0571-4757-878b-e1e1770b5046
+	isActive: false
+	fromColumn: 'Sales SalesOrderHeader'.CreditCardID
+	toColumn: 'Sales CreditCard'.CreditCardID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0d27dd03-47ae-485d-8196-eab1d776d8d1
+	fromColumn: 'Sales SalesOrderHeader'.CurrencyRateID
+	toColumn: 'Sales CurrencyRate'.CurrencyRateID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0d9bde4c-03a5-495f-8c0c-c0263de7885e
+	isActive: false
+	fromColumn: 'Sales SalesOrderHeader'.CustomerID
+	toColumn: 'Sales Customer'.CustomerID
+
+	annotation PBI_IsFromSource = FS
+
+relationship e8d0cb72-56bf-4c03-9f69-076c4ba78477
+	fromColumn: 'Sales SalesOrderHeader'.SalesPersonID
+	toColumn: 'Sales SalesPerson'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6485412a-5663-471f-be5f-5f7bab5580e0
+	isActive: false
+	fromColumn: 'Sales SalesOrderHeader'.TerritoryID
+	toColumn: 'Sales SalesTerritory'.TerritoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 2ab7c4c5-ffae-4b10-9566-5f21ea1438ed
+	fromColumn: 'Sales SalesOrderHeaderSalesReason'.SalesOrderID
+	toColumn: 'Sales SalesOrderHeader'.SalesOrderID
+
+	annotation PBI_IsFromSource = FS
+
+relationship a760de8b-1d49-45ab-a1c1-94fde234e9fc
+	fromColumn: 'Sales SalesOrderHeaderSalesReason'.SalesReasonID
+	toColumn: 'Sales SalesReason'.SalesReasonID
+
+	annotation PBI_IsFromSource = FS
+
+relationship bc73be5c-0332-4040-8ea4-ef717fd68eae
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'HumanResources Employee'.BusinessEntityID
+	toColumn: 'Sales SalesPerson'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 96fc4aa7-c7a2-4ff7-8c6a-c08d526303fe
+	isActive: false
+	fromColumn: 'Sales SalesPerson'.TerritoryID
+	toColumn: 'Sales SalesTerritory'.TerritoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 2511bea8-65fb-4f79-b6d8-e5e99ef97c91
+	fromColumn: 'Sales SalesPersonQuotaHistory'.BusinessEntityID
+	toColumn: 'Sales SalesPerson'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8d096923-e0b4-4a27-a944-5eee1f880d38
+	fromColumn: 'Sales SalesTaxRate'.StateProvinceID
+	toColumn: 'Person StateProvince'.StateProvinceID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5b6ad0c5-6e3a-40d3-a90a-9e9a0b153890
+	isActive: false
+	fromColumn: 'Sales SalesTerritory'.CountryRegionCode
+	toColumn: 'Person CountryRegion'.CountryRegionCode
+
+	annotation PBI_IsFromSource = FS
+
+relationship 4c0d8a4a-0744-431f-8c1f-7b06a68ba182
+	fromColumn: 'Sales SalesTerritoryHistory'.BusinessEntityID
+	toColumn: 'Sales SalesPerson'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 840cf107-e881-4b81-9a16-527b17e38904
+	fromColumn: 'Sales SalesTerritoryHistory'.TerritoryID
+	toColumn: 'Sales SalesTerritory'.TerritoryID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 898bd1e5-9867-4077-ae0d-c7ffb85f4285
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Sales ShoppingCartItem'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 65a4780d-26e3-4e9e-b5a3-f4d0d22cfd61
+	fromColumn: 'Sales SpecialOfferProduct'.ProductID
+	toColumn: 'Production Product'.ProductID
+
+	annotation PBI_IsFromSource = FS
+
+relationship cb0df4bb-0b36-4c0e-8515-fe18372c26d5
+	fromColumn: 'Sales SpecialOfferProduct'.SpecialOfferID
+	toColumn: 'Sales SpecialOffer'.SpecialOfferID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 3969a747-31d0-48dd-a731-1d2bfd74dde1
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Sales Store'.BusinessEntityID
+	toColumn: 'Person BusinessEntity'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 20d9bab8-b062-4e84-9ade-b5ba95fd1bd7
+	isActive: false
+	fromColumn: 'Sales Store'.SalesPersonID
+	toColumn: 'Sales SalesPerson'.BusinessEntityID
+
+	annotation PBI_IsFromSource = FS
+

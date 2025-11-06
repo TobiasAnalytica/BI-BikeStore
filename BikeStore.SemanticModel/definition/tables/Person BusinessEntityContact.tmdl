@@ -1,0 +1,62 @@
+table 'Person BusinessEntityContact'
+	lineageTag: 265f2536-c5d0-44da-8b30-0ae45bb1a076
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: ba19af20-a28f-4950-9fec-3ace5eafb7e0
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonID
+		dataType: int64
+		formatString: 0
+		lineageTag: 11fe81be-322b-49a1-926e-35046ad31a03
+		summarizeBy: none
+		sourceColumn: PersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactTypeID
+		dataType: int64
+		formatString: 0
+		lineageTag: b66c12e0-08f2-4482-988d-174ca7b7ec8c
+		summarizeBy: none
+		sourceColumn: ContactTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 000d873f-c424-480a-b2d7-e3c5caefc167
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b223ce9-f23e-423f-b56b-88d2c92dc73c
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 44e506f5-0faf-484f-b182-558ab9326efa
+			defaultHierarchy: LocalDateTable_dc471bc5-8c29-4dd5-921a-4108e1d09e7f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person BusinessEntityContact' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_BusinessEntityContact = AdventureWorks2022{[Schema="Person",Item="BusinessEntityContact"]}[Data]
+				in
+				    Person_BusinessEntityContact
+

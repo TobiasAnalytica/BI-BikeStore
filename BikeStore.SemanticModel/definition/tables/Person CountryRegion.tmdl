@@ -1,0 +1,43 @@
+table 'Person CountryRegion'
+	lineageTag: 5fc3685f-884d-47a8-b540-e3e4dbc42455
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: 8500d5b7-3951-49df-9ed6-07d134c2606a
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: bf12a808-1591-470b-83de-750fd275ee9b
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 00cf4eaa-9639-4ac2-b92d-de51c2249c9a
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 11f4cd3c-5a3a-49d2-a664-47d423430634
+			defaultHierarchy: LocalDateTable_cecab023-6b68-4198-93c2-d8b6fbbfbf85.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person CountryRegion' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_CountryRegion = AdventureWorks2022{[Schema="Person",Item="CountryRegion"]}[Data]
+				in
+				    Person_CountryRegion
+

@@ -1,0 +1,159 @@
+table 'Sales vIndividualCustomer'
+	lineageTag: e06452fa-8ff1-4ad5-9ed4-98fcbca24bc2
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: ff5a75d4-9450-41dc-b966-faee2d8d99ab
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 173221eb-b18b-442a-942c-0c9bb0643859
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: a088bab6-7036-451d-8199-95faf0d986ff
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 90659705-be54-458f-b59c-44db694612e4
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 7ff31c38-8829-40a4-a55e-0b5b46d388ed
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: 8ebf9c0d-0044-402f-8257-c4a3f8c6befd
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 4f278170-14c5-4d7f-95dd-7f15d0a44603
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberType
+		dataType: string
+		lineageTag: 4446ba2b-83f2-45b4-8ce9-65c8078959d5
+		summarizeBy: none
+		sourceColumn: PhoneNumberType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		lineageTag: d7c44236-354f-481f-b690-af9a50abc081
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		lineageTag: 86de6391-0c99-406a-ac5d-5c8cc2e1a2ac
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressType
+		dataType: string
+		lineageTag: 5e2e30f5-07f0-470a-81af-9552b3eed0bb
+		summarizeBy: none
+		sourceColumn: AddressType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: 5e898e94-63f7-45c2-b1d1-f3edcbbda9c2
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: 58fbaead-7e46-4c85-b9e0-bed51b12d445
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 38d720b0-feef-4b83-a5b4-ed44fcee8c16
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: 27dedc62-ebf9-4dc4-ab34-7dd7426a5ec7
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 66390f2a-60ab-45eb-91e6-b3a67f0127e6
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		lineageTag: 3d241b63-1c26-4e02-bce8-11165ac89ca1
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Demographics
+		dataType: string
+		lineageTag: cf6e3701-e121-4a77-91f5-7245ccd394dd
+		summarizeBy: none
+		sourceColumn: Demographics
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales vIndividualCustomer' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_vIndividualCustomer = AdventureWorks2022{[Schema="Sales",Item="vIndividualCustomer"]}[Data]
+				in
+				    Sales_vIndividualCustomer
+

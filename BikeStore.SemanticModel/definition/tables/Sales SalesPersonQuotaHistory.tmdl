@@ -1,0 +1,69 @@
+table 'Sales SalesPersonQuotaHistory'
+	lineageTag: d1f0b07b-eb30-4f54-a5b7-cedf2d3b71af
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: b642206c-9418-4a33-8c3e-0d8a43a9fb96
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotaDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 92b64d87-3988-46c1-aa39-31d6d0c40519
+		summarizeBy: none
+		sourceColumn: QuotaDate
+
+		variation Variation
+			isDefault
+			relationship: de1fcaf3-d3a5-45cb-a283-44d99552bbca
+			defaultHierarchy: LocalDateTable_25dded0f-b61c-4de5-b716-fa0dd85e494e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuota
+		dataType: decimal
+		formatString: #,0.###############\ "kr";-#,0.###############\ "kr";#,0.###############\ "kr"
+		lineageTag: ce3a078f-0145-4c1d-8033-d7b02ec7e121
+		summarizeBy: sum
+		sourceColumn: SalesQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"sv-SE"}
+
+	column rowguid
+		dataType: string
+		lineageTag: 4f3898cc-d903-42b4-b948-2e8b8c39f6d1
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17334783-de06-4bd7-843d-58c43d5da6c4
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 78167713-29f7-451c-b4e2-1cc2425e88d3
+			defaultHierarchy: LocalDateTable_f95b8a9b-6c74-4a7b-adca-f340b8456955.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesPersonQuotaHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SalesPersonQuotaHistory = AdventureWorks2022{[Schema="Sales",Item="SalesPersonQuotaHistory"]}[Data]
+				in
+				    Sales_SalesPersonQuotaHistory
+

@@ -1,0 +1,72 @@
+table 'Person vStateProvinceCountryRegion'
+	lineageTag: 10cec866-1ee0-4c1c-a2fa-b6a1680c3037
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		lineageTag: c4e9867f-9485-4eb4-9bd4-bc8be744c817
+		summarizeBy: count
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		lineageTag: 0be3120a-9f19-4dfb-a542-acdb4b4c725a
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOnlyStateProvinceFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6ca9f6e6-497a-436e-9bb7-4e76f75aae95
+		summarizeBy: none
+		sourceColumn: IsOnlyStateProvinceFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: 01bca742-91a4-4c13-b3aa-25cf459161cd
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: e2825f00-ec55-4470-ab24-f9f932f3d299
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: 62aba8dc-4c1e-4111-a958-d6d85ba46c3b
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		lineageTag: 20b01430-4a74-4045-b035-e5b7a9802e11
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person vStateProvinceCountryRegion' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_vStateProvinceCountryRegion = AdventureWorks2022{[Schema="Person",Item="vStateProvinceCountryRegion"]}[Data]
+				in
+				    Person_vStateProvinceCountryRegion
+

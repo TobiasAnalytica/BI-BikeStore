@@ -1,0 +1,81 @@
+table 'Sales SalesTerritoryHistory'
+	lineageTag: cb230bda-3cac-4015-b342-7f61cc6df1f1
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: cdb7d8fe-b341-469e-a495-fc8f639119a0
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 297c60c5-e71a-41e2-b5e6-79b450900380
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c5fb32db-5d9f-4817-9eb2-6dff004779fa
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: 0a40c62b-c386-40c3-9514-c1c82024ff23
+			defaultHierarchy: LocalDateTable_555bcb0a-60d5-46f2-89de-64ffedb7f904.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f3ba1db7-74c1-4a67-96af-7ae824bc9db6
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: ed344886-7a9c-4366-b1e0-d2efa3c83a7f
+			defaultHierarchy: LocalDateTable_ea48d566-6828-4f4e-a2bf-fbd29b6eba70.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: bf42cd53-e225-44df-957f-15ba2254447a
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ff68ee1a-b4e1-406a-a9be-30fd56121d59
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: a3447174-3ecb-4aff-8e4c-726526e5eed4
+			defaultHierarchy: LocalDateTable_a797167f-a9b5-4105-9f3f-b1f7fce76a31.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesTerritoryHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Sales_SalesTerritoryHistory = AdventureWorks2022{[Schema="Sales",Item="SalesTerritoryHistory"]}[Data]
+				in
+				    Sales_SalesTerritoryHistory
+

@@ -1,0 +1,43 @@
+table 'Production Culture'
+	lineageTag: 865bff4d-e7e2-4333-889e-4e14556f9386
+
+	column CultureID
+		dataType: string
+		lineageTag: c482f548-2488-40db-934b-cfb194d26f35
+		summarizeBy: none
+		sourceColumn: CultureID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 56a50589-1fa7-4b11-b70d-8e21a669f9d7
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 26e4f07c-10c5-4018-8374-ad9aaac5424e
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 578f4911-8a41-4b38-953d-cc3d80a766fd
+			defaultHierarchy: LocalDateTable_36f9ac14-186a-4074-915a-111066051d99.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production Culture' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Production_Culture = AdventureWorks2022{[Schema="Production",Item="Culture"]}[Data]
+				in
+				    Production_Culture
+

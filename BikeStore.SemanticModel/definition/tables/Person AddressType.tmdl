@@ -1,0 +1,52 @@
+table 'Person AddressType'
+	lineageTag: 67f54771-fb9a-44ef-ba97-a93f945c7520
+
+	column AddressTypeID
+		dataType: int64
+		formatString: 0
+		lineageTag: e4d5d163-779e-4939-ab60-f9dc57c6679a
+		summarizeBy: none
+		sourceColumn: AddressTypeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: f095ba9f-b284-4bd6-a9ef-5f0893109950
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 90202ff8-9a59-40fc-b112-5b05077171d4
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b9de62b-ed1a-476b-9bf9-f19b213b2d74
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 3ebe8643-24e7-4a32-8593-ab1d88612852
+			defaultHierarchy: LocalDateTable_75400c81-d348-4cbd-8cc5-2a43b3b1cafe.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person AddressType' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("127.0.0.1,1433"),
+				    AdventureWorks2022 = Source{[Name="AdventureWorks2022"]}[Data],
+				    Person_AddressType = AdventureWorks2022{[Schema="Person",Item="AddressType"]}[Data]
+				in
+				    Person_AddressType
+
